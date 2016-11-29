@@ -5,7 +5,7 @@
 		<h1>TF-IDF function testing</h1>
 		<p>The output to the tf function should be printed below</p>
 		<p id="output"></p>
-		
+		<script src=""></script>
 		<script>
 		function tf(summary) {
 			var i;
@@ -14,16 +14,17 @@
 			var uniqueWords = [];
 			var words = summary.split(" "); //splits summary into word array
 			for (i = 0; i < words.length; ++i) {
-				if (index = &.inArray(words[i], uniqueWords) 
+				index = uniqueWords.map(function(e) {return e.Word}).indexOf(words[i]);//uniqueWords.indexOf(words[i]);
+				if (index != -1) 
 					++uniqueWords[index].Frequency;
 				else {
 					temp = {Word: words[i], Frequency: 1}
 					uniqueWords.push(temp);
 				}
 			}
-			return uniqueWords;
+			return JSON.stringify(uniqueWords);
 		}
-		document.getElementById("output").innerHTML = window.tf("This is a summary of a film Script, it is quite short but there should be enough words in this film script to get the algorithm to work.")
+		document.getElementById("output").innerHTML = window.tf("Forrest Gump is a simple man with a low I.Q. but good intentions. He is running through childhood with his best and only friend Jenny. His 'mama' teaches him the ways of life and leaves him to choose his destiny. Forrest joins the army for service in Vietnam, finding new friends called Dan and Bubba, he wins medals, creates a famous shrimp fishing fleet, inspires people to jog, starts a ping-pong craze, creates the smiley, writes bumper stickers and songs, donates to people and meets the president several times. However, this is all irrelevant to Forrest who can only think of his childhood sweetheart Jenny Curran, who has messed up her life. Although in the end all he wants to prove is that anyone can love anyone.")
 		</script>
 	</body>
 </html>
