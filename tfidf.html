@@ -18,13 +18,18 @@
 				if (index != -1) 
 					++uniqueWords[index].Frequency;
 				else {
-					temp = {Word: words[i], Frequency: 1}
+					temp = {Word: words[i], Frequency: 1};
 					uniqueWords.push(temp);
 				}
 			}
+			uniqueWords.sort(function(a, b){return b.Frequency - a.Frequency});	//This line orders the uniqueWords is decending order of frequency.
 			return JSON.stringify(uniqueWords);
+			
 		}
-		document.getElementById("output").innerHTML = window.tf("Forrest Gump is a simple man with a low I.Q. but good intentions. He is running through childhood with his best and only friend Jenny. His 'mama' teaches him the ways of life and leaves him to choose his destiny. Forrest joins the army for service in Vietnam, finding new friends called Dan and Bubba, he wins medals, creates a famous shrimp fishing fleet, inspires people to jog, starts a ping-pong craze, creates the smiley, writes bumper stickers and songs, donates to people and meets the president several times. However, this is all irrelevant to Forrest who can only think of his childhood sweetheart Jenny Curran, who has messed up her life. Although in the end all he wants to prove is that anyone can love anyone.")
+		
+		var sum;
+		sum = ("Forrest Gump is a simple man with a low I.Q. but good intentions. He is running through childhood with his best and only friend Jenny. His 'mama' teaches him the ways of life and leaves him to choose his destiny. Forrest joins the army for service in Vietnam, finding new friends called Dan and Bubba, he wins medals, creates a famous shrimp fishing fleet, inspires people to jog, starts a ping-pong craze, creates the smiley, writes bumper stickers and songs, donates to people and meets the president several times. However, this is all irrelevant to Forrest who can only think of his childhood sweetheart Jenny Curran, who has messed up her life. Although in the end all he wants to prove is that anyone can love anyone."); 
+		document.getElementById("output").innerHTML = window.tf(sum);
 		</script>
 	</body>
 </html>

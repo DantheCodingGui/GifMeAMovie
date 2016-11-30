@@ -5,22 +5,13 @@
 //   add <span id = "giphyme"></span> wherever you want to display the image. -- FYI, it will be centered.
 // big ups to the Giphy crew (giphy.com)
 // 2014 - Neal Shyam [@nealrs | nealshyam.com]
-
-
-
-
 document.addEventListener('DOMContentLoaded', getGIF);
-
 q = "Russians"; // search query
-
 var x = 5;
 console.log(x);
-
 function getGIF() {
-
     request = new XMLHttpRequest;
     request.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+q, true);
-
     request.onload = function getGif() {
         if (request.status >= 200 && request.status < 400){
             console.log()
@@ -32,16 +23,12 @@ function getGIF() {
             console.log('reached giphy, but API returned an error');
         }
     };
-
     request.onerror = function() {
         console.log('connection error');
     };
-
     request.send();
 }
-
 // minimal demo 
-
 //<html>
 //<head>
 //	<title>giphy.js demo</title>
