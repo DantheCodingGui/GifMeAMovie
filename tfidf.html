@@ -12,12 +12,12 @@
 			var index;
 			var temp;
 			var uniqueWords = [];
-			summary = summary.replace(/[.,\/#!$%\^&\*{\n};:{}=\-_`~()]/g,""); //Removes punctuation from summary.
-			
+			summary = summary.replace(/[.,\/#!$%\^&\*{\n};:{}=\-_'`~()]/g,""); //Removes punctuation from summary.
+			summary = summary.toLowerCase();
 			var words = summary.split(" "); //splits summary into word array
 			
 			for (i = 0; i < words.length; ++i) {
-				index = uniqueWords.map(function(e) {return e.Word}).indexOf(words[i]);//uniqueWords.indexOf(words[i]);
+				index = uniqueWords.map(function(e) {return e.Word}).indexOf(words[i]);
 				if (index != -1) 
 					++uniqueWords[index].Frequency;
 				else {
