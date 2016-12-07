@@ -1,14 +1,3 @@
-// on page load, search for & display a random gif matching your search term using the Giphy API.
-// usage: 
-//   include giphy.js in your <head>
-//   set q to your search term (e.g. "brunch")
-//   add <span id = "giphyme"></span> wherever you want to display the image. -- FYI, it will be centered.
-// big ups to the Giphy crew (giphy.com)
-// 2014 - Neal Shyam [@nealrs | nealshyam.com]
-
-
-
-
 document.addEventListener('DOMContentLoaded', getGIF);
 
 // var myarray = ["Simpsons","Futurama","Family Guy"];
