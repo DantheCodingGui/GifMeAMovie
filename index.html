@@ -1,10 +1,19 @@
-<html>                                                                                                                                         
-    <head>                                                                                                                                         
-        <title>giphy.js demo</title>                                                                                                             
-        <script src ="tfidf.js"></script>
-        <script src="giphy.js"></script>                                                                                                         
-    </head>                                                                                                                                        
-    <body style="background-color:black; margin:0px;">
-        <span id = "giphyme"></span>                                                                                                             
-    </body>                                                                                                                                        
-</html> 
+<html >
+<head>
+	<title>GIF Search</title>
+	<script src ="tfidf.js"></script>
+	<script src="giphy.js"></script> 
+	<link rel="stylesheet" href="css/style.css">  
+</head>
+<body>
+<form>
+	<textarea type = "text" id = "summary" cols="100" rows="30" placeholder="Input Film Summary..." autofocus></textarea>
+	<br />
+	<br />
+    <a class="button" id="search" onclick="callGetGIF()" type="submit">Search</a>
+</form>
+<form class = "gif">
+	<span id = "giphyme"></span> 
+</form>
+</body>
+</html>
