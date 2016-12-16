@@ -41,14 +41,12 @@
 			}
 			
 			
-			return wordRanked; //Change to simple return when done!
+			return wordRanked;
 		}
 		function tfFrontEdgeSummary() {
-			var summary = document.getElementById('input').innerHTML;
-			document.getElementById('output').innerHTML = idf("");//summary);
-			
+			var summary = document.getElementById('input').innerHTML; //grabs input placed in p tag
+			document.getElementById('output').innerHTML = idf(""); //runs idf with empty string to test if dialog box created
 		}
-		
 		function idf(summary){
 			
 			var choiceWords = [];
