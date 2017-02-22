@@ -1,5 +1,6 @@
 body {
-	background-color: #ccc;
+	background-image: url("../images/search_background.jpg");
+	background-size: cover;
     color: #eee;
     text-align: center;
     }
