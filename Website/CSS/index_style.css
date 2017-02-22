@@ -7,6 +7,11 @@ button {
 	width: 50%;
 	height: 100%;
 	border: 0;
+	outline: none;
+	font-family: Veranda;
+	font-weight: bold;
+	font-size: 75px;
+	color: #666666;
 }
 
 #page-container {
@@ -22,9 +27,17 @@ button {
 	background-size: cover;
 }
 
+#search-area:hover {
+	background-image: url("../images/search_hover.jpg");
+}
+
 #play-area {
 	float: right;
 	background-image: url("../images/play_default.jpg");
 	background-position: center;
 	background-size: cover;
+}
+
+#play-area:hover {
+	background-image: url("../images/play_hover.jpg");
 }
