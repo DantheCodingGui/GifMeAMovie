@@ -28,10 +28,9 @@ button:hover {
 	float: left;
 	background-image: url("../images/search_default.jpg");
 	background-position: center;
-	background-size: cover;
-	transition: background-size 1s ease-in;
-	
-	position: absolute;
+	background-size: 100%;
+	transition: all .5s ease-in-out;
+	overflow: hidden;
 }
 
 #search-area:hover {
@@ -42,7 +41,9 @@ button:hover {
 	float: right;
 	background-image: url("../images/play_default.jpg");
 	background-position: center;
-	background-size: cover;
+	background-size: 100%;
+	transition: all .5s ease-in-out;
+	overflow: hidden;
 }
 
 #play-area:hover {
