@@ -8,10 +8,14 @@ button {
 	height: 100%;
 	border: 0;
 	outline: none;
-	font-family: Veranda;
+	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
 	font-size: 75px;
 	color: #666666;
+}
+
+button:hover {
+	color: white;
 }
 
 #page-container {
@@ -25,6 +29,9 @@ button {
 	background-image: url("../images/search_default.jpg");
 	background-position: center;
 	background-size: cover;
+	transition: background-size 1s ease-in;
+	
+	position: absolute;
 }
 
 #search-area:hover {
