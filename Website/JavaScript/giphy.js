@@ -50,3 +50,10 @@ function getGIF() {
 
     request.send(); //sends request at thet end
 }
+
+function updateDatabase() {
+    document.getElementByID("upvote").addEventListener("click", displayDate);
+    console.log("axaxax");
+    document.getElementByID("downvote").addEventListener("click", displayDate);
+}
+
