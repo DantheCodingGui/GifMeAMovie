@@ -63,12 +63,22 @@ div.fullpagecontent:hover {
 
 /*takes user from full page to index page*/
 button.backbutton {
-	width: 250px;
+	width: 10%;
 	height: 100%;
+	border: none;
+	outline: none;
 	
+	background-color: transparent;
+	
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 40px;
+	color: white;
+	
+	transition: background-color 0.3s ease-in-out;
 }
 button.backbutton:hover {
-	
+	background: rgba(255, 255, 255, .3);
 }
 
 /*gif display formatting*/
@@ -136,6 +146,16 @@ textarea {
 /*full quiz page*/
 #quiz-full {
 	
+}
+
+/*return from search to home page*/
+#search-return {
+	float: left;
+}
+
+/*return from quiz to home page*/
+#quiz-return {
+	float: right;
 }
 
 /*button to submit film summary for analysis*/

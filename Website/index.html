@@ -20,8 +20,9 @@
 	<body onload="LoadButtons()">
 		<div id="container-full">
 			<div id="search-container" class="loadedcontainer">
-				<button id="search-load" class="loadbutton" onclick="ToggleElemLoad(0)">Search</button>
+				<button id="search-load" class="loadbutton" onclick="ToggleElemLoad(0)" href="#search">Search</button>
 				<div id="search-full" class="fullpagecontent">
+					<button id="search-return" class="backbutton">Return</button>
 					<form>
 						<textarea type = "text" id = "summary" cols="100" rows="30" placeholder="Input Film Summary..." autofocus></textarea>
 						<br />
@@ -34,9 +35,9 @@
 				</div>
 			</div>
 			<div id="quiz-container" class="loadedcontainer">
-				<button id="quiz-load" class="loadbutton" onclick="ToggleElemLoad(1)">Play</button>
+				<button id="quiz-load" class="loadbutton" onclick="ToggleElemLoad(1)" href="#quiz">Play</button>
 				<div id="quiz-full" class="fullpagecontent">
-				
+					<button id="quiz-return" class="backbutton">Return</button>
 				</div>
 			</div>
 		</div>
