@@ -4,6 +4,21 @@ html, body, div {
 	margin: 0;
 } 
 
+/*box to submit summary*/
+textarea {
+  	width: 40em;
+  	height: 20em;
+  	max-width: 60em;
+  	max-height: 30em;
+  	padding: 1em;
+	margin-top: 150px;
+  	font-family: "Montserrat", "sans-serif";
+  	font-size: 1em;
+  	border: 0.1em solid #ccc;
+  	border-radius: 0.5em;
+  	background-color: white; 	
+}
+
 /*left and right container divs on main page*/
 div.loadedcontainer {
 	width: 50%;
@@ -64,7 +79,7 @@ div.fullpagecontent:hover {
 /*takes user from full page to index page*/
 button.backbutton {
 	width: 10%;
-	height: 100%;
+	height: 10%;
 	border: none;
 	outline: none;
 	
@@ -86,21 +101,6 @@ button.backbutton:hover {
 	margin-top: 100px;
 }
 
-/*box to submit summary*/
-textarea {
-  	width: 40em;
-  	height: 20em;
-  	max-width: 60em;
-  	max-height: 30em;
-  	padding: 1em;
-	margin-top: 150px;
-  	font-family: "Montserrat", "sans-serif";
-  	font-size: 1em;
-  	border: 0.1em solid #ccc;
-  	border-radius: 0.5em;
-  	background-color: white;  	
-}
-
 /*whole page container*/
 #container-full { 
 	width: 100%;
@@ -118,6 +118,7 @@ textarea {
 /*quiz/play(right side) container*/
 #quiz-container { 
 	float: right;
+	right: 0;
 	background-image: url("../images/quiz_background.jpg");
 	background-position: right top;
 }
@@ -138,16 +139,6 @@ textarea {
 	background-image: url("../images/quiz_background.jpg");
 }
 
-/*full search page*/
-#search-full {
-	
-}
-
-/*full quiz page*/
-#quiz-full {
-	
-}
-
 /*return from search to home page*/
 #search-return {
 	float: left;
@@ -160,6 +151,7 @@ textarea {
 
 /*button to submit film summary for analysis*/
 #submit-sum {
+	font-family: 'Montserrat', sans-serif;
 	margin: 0 auto;
     display: block;
     width: 115px;

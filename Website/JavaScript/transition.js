@@ -24,6 +24,66 @@ function ExpandQuiz () {
 }
 */
 
+function ExpandSearch() {
+	unload = document.getElementById("search-load");
+	load = document.getElementById("search-full");
+	unload.style.opacity = 0;
+	DelayStateTransitions(unload, load, true, 0);
+}
+
+function ExpandQuiz() {
+	unload = document.getElementById("quiz-load");
+	load = document.getElementById("quiz-full");
+	unload.style.opacity = 0;
+	DelayStateTransitions(unload, load, true, 1);
+}
+
+function RecedeSearch() {
+	unload = document.getElementById("search-full");
+	load = document.getElementById("search-load");
+	unload.style.opacity = 0;
+	DelayStateTransitions(unload, load, false, 0);
+}
+
+function RecedeQuiz() {
+	unload = document.getElementById("quiz-full");
+	load = document.getElementById("quiz-load");
+	unload.style.opacity = 0;
+	DelayStateTransitions(unload, load, false, 1);	
+}
+/*searchLoad = false;
+quizLoad = false;
+
+//toggles visibility of the two elements in the left and right div's
+function ToggleElemLoad (side) {
+	if (side == 0) { //just clicked 'Search'
+		if (searchLoad == false) {
+			unload = document.getElementById("search-load");
+			load = document.getElementById("search-full");
+			expand = searchLoad = true;
+		}
+		else {
+			unload = document.getElementById("search-full");
+			load = document.getElementById("search-load");
+			expand = searchLoad = false;
+		}
+	}
+	else if (side == 1) { //just clicked 'Play'
+		if (quizLoad == false) {
+			unload = document.getElementById("quiz-load");
+			load = document.getElementById("quiz-full");
+			expand = quizLoad = true;
+		}
+		else {
+			unload = document.getElementById("quiz-full");
+			load = document.getElementById("quiz-load");
+			expand = quizLoad = false;
+		}
+	}
+	unload.style.opacity = 0;
+	DelayStateTransitions(unload, load, expand, side);	
+}
+*/
 
 //expands the left or right div to full page width to show 
 //their corresponding content
@@ -31,17 +91,15 @@ function ExpandContent (sideToExpand) {
 	if (sideToExpand == 0) {
 		focusSide = document.getElementById("search-container");
 		otherSide = document.getElementById("quiz-container");
-		focusSide.style.left = 0;
 	}
 	else if (sideToExpand == 1) {
 		focusSide = document.getElementById("quiz-container");
 		otherSide = document.getElementById("search-container");
-		focusSide.style.right = 0;
 	}
 	focusSide.style.width = "100%";
 	focusSide.style.backgroundSize = "100% 100%";
 	focusSide.style.position = "absolute";
-	focusSide.style.top = 0;
+	//focusSide.style.top = 0;
 	otherSide.style.position = "relative";
 	otherSide.style.zIndex = -1;
 	focusSide.style.zIndex = 5;
@@ -57,37 +115,23 @@ function RecedeContent (sideToRecede) {
 		focusSide = document.getElementById("quiz-container");
 		otherSide = document.getElementById("search-container");
 	}
-	focusSide.style.width = "50%";
-	focusSide.style.backgroundSize = "200% 100%";
-	focusSide.style.position = "initial";
-	focusSide.style.right = 0;
 	focusSide.style.top = 0;
-	otherSide.style.position = "initial";
-	otherSide.style.zIndex = 1;
+	focusSide.style.backgroundSize = "200% 100%";
+	focusSide.style.width = "50%";
 	focusSide.style.zIndex = 1;
-}
-
-//toggles visibility of the two elements in the left and right div's
-function ToggleElemLoad (side) {
-	if (side == 0) { //just clicked 'Search'
-		butn = document.getElementById("search-load");
-		content = document.getElementById("search-full");	
-	}
-	else if (side == 1) { //just clicked 'Play'
-		butn = document.getElementById("quiz-load");
-		content = document.getElementById("quiz-full");
-	}
-	butn.style.opacity = 0;
-	DelayStateTransitions(butn, content, side);	
+	otherSide.style.zIndex = -1;
 }
 
 //brings elements into and out of view, while dealing with transition lengths
-function DelayStateTransitions(unload, load, side) {
+function DelayStateTransitions(unload, load, expand, side) {
 	setTimeout(function() { //delays removal of button by transition length
 		unload.style.display = "none";
 	}, 300);
 	setTimeout(function() {
-		ExpandContent(side);
+		if (expand)
+			ExpandContent(side);
+		else
+			RecedeContent(side);
 	}, 400);
 	setTimeout(function() {
 		load.style.display = "block";
@@ -97,6 +141,7 @@ function DelayStateTransitions(unload, load, side) {
 	}, 950);
 }
 
+/*expands button text into view when the home page is loaded*/
 function LoadButtons() {
 	left = document.getElementById("search-load");
 	right = document.getElementById("quiz-load");
