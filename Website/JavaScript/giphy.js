@@ -11,7 +11,7 @@ function callGetGIF() {
                                                                 //runs string through idf() from tfidf.js
 	q = myarray[0];                                     
 	document.getElementById("summary").remove();
-	document.getElementById("search").remove();
+	document.getElementById("submit-sum").remove();
 	getGIF();
 }
 

@@ -61,6 +61,15 @@ div.fullpagecontent:hover {
 	opacity: 0.5;
 }
 
+/*takes user from full page to index page*/
+button.backbutton {
+	width: 250px;
+	height: 100%;
+	
+}
+button.backbutton:hover {
+	
+}
 
 /*gif display formatting*/
 .gif {
