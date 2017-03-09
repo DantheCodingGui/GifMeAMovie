@@ -52,9 +52,9 @@ function getGIF() {
 }
 
 function upVote() {
-    console.log("upboated");
+    console.log("upVoted");
 }
 
 function downVote() {
-    console.log("downBoated");
+    console.log("downVoted");
 }
