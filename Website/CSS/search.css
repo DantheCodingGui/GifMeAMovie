@@ -1,7 +1,6 @@
 body {
 	background-image: url("../images/search_background.jpg");
-	background-size: 100%;
-    color: #eee;
+	background-size: 100% 100%;
     text-align: center;
     }
 	
@@ -20,7 +19,7 @@ textarea {
   	font-size: 1em;
   	border: 0.1em solid #ccc;
   	border-radius: 0.5em;
-  	background-color: #FF7051;  	
+  	background-color: white;  	
 	}
   
 .button {
@@ -28,11 +27,11 @@ textarea {
     display: block;
     width: 115px;
     height: 25px;
-    background: #4E9CAF;
+    background: white;
     padding: 15px;
     text-align: center;
     border-radius: 5px;
 	font-size:20px;
-    color: white;
+    color: black;
     font-weight: bold;
 	}

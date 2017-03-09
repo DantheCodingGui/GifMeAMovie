@@ -8,15 +8,35 @@
 		<meta name="keywords" content="Gif, Summary, Film, Movie, Quiz">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="author" content="Daniel Baxter">
+		<script src ="JavaScript/tfidf.js"></script>
+		<script src="JavaScript/giphy.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="CSS/index_style.css"\>
 		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	</head>
 	
 	<body>
-		<div>
-				<button onclick="window.location.href='search.html'" id="search-area">Search</button>
-				<button onclick="window.location.href='quiz.html'" id="play-area">Play</button>
+		<div id="container-full">
+			<div id="search-container" class="loadedcontainer">
+				<button id="search-load" class="loadbutton" onclick="window.location.href='search.html'">Search</button>
+				<div id="search-full" class="fullpagecontent">
+					<form>
+						<textarea type = "text" id = "summary" cols="100" rows="30" placeholder="Input Film Summary..." autofocus></textarea>
+						<br />
+						<br />
+						<a id="submit-sum" onclick="callGetGIF()" type="submit">Search</a>
+					</form>
+					<form class = "gif">
+						<span id = "giphyme"></span>
+					</form>
+				</div>
+			</div>
+			<div id="quiz-container" class="loadedcontainer">
+				<button id="quiz-load" class="loadbutton" onclick="window.location.href='quiz.html'">Play</button>
+				<div id="quiz-full" class="fullpagecontent">
+				
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
