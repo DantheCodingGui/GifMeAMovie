@@ -16,7 +16,7 @@ textarea {
   	font-size: 1em;
   	border: 0.1em solid #ccc;
   	border-radius: 0.5em;
-  	background-color: white; 	
+  	background-color: white; 
 }
 
 /*left and right container divs on main page*/
@@ -58,7 +58,7 @@ button.loadbutton {
 		opacity;
 }
 button.loadbutton:hover {
-	font-size: 77px;
+	font-size: 77px !important;
 	color: #ffffff;
 }
 
@@ -81,12 +81,15 @@ button.backbutton {
 	border: none;
 	outline: none;
 	
+	position: absolute;
+	top: 0;
+	
 	background-color: transparent;
 	
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
 	font-size: 40px;
-	color: white;
+	color: #ffffff;
 	
 	transition: background-color 0.3s ease-in-out;
 }
@@ -155,18 +158,18 @@ button.backbutton:hover {
 
 /*return from search to home page*/
 #search-return {
-	float: left;
+	left: 0;
 }
 
 /*return from quiz to home page*/
 #quiz-return {
-	float: right;
+	right: 0;
 }
 
 .divTableGIF{
 	display: table;
 	width: 100%;
-	margin-top: 25vh;
+	margin-top: 10vh;
 }
 .divTable{
 	display: table;
