@@ -38,7 +38,7 @@ function getGIF() {
             mp4Link.push(data); //adding mp4 link to array
             // document.getElementById("giphyme").innerHTML = '<center><img onclick="getGIF()" src = "'+data+'"  title="GIF via Giphy"></center>';
             // if (mp4Link.length = myarray.length) //make so that stores links so doesnt need to show a different summary
-            document.getElementById("giphyme").innerHTML = '<center><video src="'+data+'" autoplay onended="getGIF()"></video>';//show mp4
+            document.getElementById("searchgif").innerHTML = '<center><video src="'+data+'" autoplay onended="getGIF()"></video>';//show mp4
         } else {
             console.log('reached giphy, but API returned an error'); //error handling
         }

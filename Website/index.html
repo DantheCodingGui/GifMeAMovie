@@ -10,6 +10,7 @@
 		<script src ="JavaScript/tfidf.js"></script>
 		<script src="JavaScript/giphy.js"></script>
 		<script src ="JavaScript/transition.js"></script>
+		<script src ="JavaScript/giphyquiz.js"></script> 
 		
 		<link rel="stylesheet" type="text/css" href="CSS/style.css"\>
 		<!--<link rel="stylesheet" type="text/css" href="CSS/search.css"\> 
@@ -27,10 +28,10 @@
 						<textarea type = "text" id = "summary" cols="100" rows="30" placeholder="Input Film Summary..." autofocus></textarea>
 						<br />
 						<br />
-						<a id="submit-sum" onclick="callGetGIF()" type="submit">Search</a>
+						<a id="submit-sum" class="stdbutton" onclick="callGetGIF()" type="submit">Search</a>
 					</form>
 					<form class = "gif">
-						<span id = "giphyme"></span>
+						<span id = "searchgif"></span>
 					</form>
 				</div>
 			</div>
@@ -38,6 +39,23 @@
 				<button id="quiz-load" class="loadbutton" onclick="ExpandQuiz()">Play</button>
 				<div id="quiz-full" class="fullpagecontent">
 					<button id="quiz-return" class="backbutton" onclick="RecedeQuiz()">Back</button>
+					<div class="divTableGIF">
+						<div class="divTableRow">
+							<span onLoad="getGIF()" id = "quizgif"></span>
+						</div>
+					</div>
+					<div class="divTable">
+						<div class="divTableBody">
+							<div class="divTableRow">
+							   <div class="divTableCell"><a class="stdbutton" type="submit">Answer</a></div>
+							   <div class="divTableCell"><a class="stdbutton" type="submit">Answer</a></div>
+							</div>
+							<div class="divTableRow">
+								<div class="divTableCell"><a class="stdbutton" type="submit">Answer</a></div>
+								<div class="divTableCell"><a class="stdbutton" type="submit">Answer</a></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
