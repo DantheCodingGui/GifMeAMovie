@@ -50,11 +50,3 @@ function getGIF() {
 
     request.send(); //sends request at thet end
 }
-
-function upVote() {
-    console.log("upVoted");
-}
-
-function downVote() {
-    console.log("downVoted");
-}
