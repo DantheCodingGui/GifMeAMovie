@@ -1,6 +1,7 @@
 //giph.js handles the giphy api
 //input = 10 word strings stored in array
 //output = 10 gifs that are played on repeat
+console.log("testing node");
 var myarray;//array that stores words- usually 10
 var q; //q represents the string search query for the giphy API
 var i = 0; // counter
