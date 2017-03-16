@@ -7,7 +7,7 @@ app.use(express.static('public'));
 
 // Listen for requests
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/search.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 io.on('connection', function(socket){
@@ -15,7 +15,7 @@ io.on('connection', function(socket){
 
     socket.on('message', function(data) {
         console.log('Client saying something ' + data);
-});
+    });
 });
 
-    server.listen(8000);
+server.listen(8000);
