@@ -13,8 +13,9 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
     console.log('a user connected');
 
-    socket.on('message', function(data) {
-        console.log('Client saying something ' + data);
+    socket.on('event', function(data) {
+        var myJSON = JSON.stringify(data);
+        console.log(myJSON);
     });
 });
 
