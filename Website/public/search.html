@@ -4,6 +4,13 @@
 	<script src ="JavaScript/tfidf.js"></script>
 	<script src="JavaScript/giphy.js"></script>
 	<link rel="stylesheet" href="CSS/search.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <script>  
+ var socket = io.connect('http://rishi.doubletrouble.co:8000');
+  socket.on('message', function(data) {
+          socket.emit('wutface', 'Hello World from client');
+           });
+        </script>
 </head>
 <body>
 <form>

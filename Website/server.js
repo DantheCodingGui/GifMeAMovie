@@ -1,14 +1,21 @@
-var express = require('express');
-var path = require('path');
-var app = express();
+var express = require('express');  
+var app = express();  
+var server = require('http').createServer(app);  
+var io = require('socket.io')(server);
 
-// Define the port to run on
-app.set('port', 8000);
-
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 // Listen for requests
-var server = app.listen(app.get('port'), function() {
-  var port = server.address().port;
-  console.log('Serving on port ' + port);
+app.get('/', function(req, res){
+    res.sendFile(__dirname + '/search.html');
 });
+
+io.on('connection', function(socket){
+    console.log('a user connected');
+
+    socket.on('message', function(data) {
+        console.log('Client saying something ' + data);
+});
+});
+
+    server.listen(8000);
