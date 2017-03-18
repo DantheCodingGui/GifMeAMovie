@@ -1,4 +1,5 @@
 var express = require('express');  
+var MongoClient = require('mongodb').MongoClient;
 var app = express();  
 var server = require('http').createServer(app);  
 var io = require('socket.io')(server);
@@ -16,6 +17,26 @@ io.on('connection', function(socket){
     socket.on('event', function(data) {
         var myJSON = JSON.stringify(data);
         console.log(myJSON);
+    });
+});
+
+var insertDocuments = function(db, callback) {
+    var collection = db.collection('gifs');
+    // Insert some documents 
+    collection.insertMany([
+        {a : 1}, {a : 2}, {a : 3}
+    ], function(err, result) {
+        console.log("Inserted 3 documents into the document collection");
+        callback(result);
+    });
+}
+
+var url = 'mongodb://localhost:27017/';
+MongoClient.connect(url, function(err, db) {
+    console.log("Connected correctly to server");
+
+    insertDocuments(db, function() {
+        db.close();
     });
 });
 

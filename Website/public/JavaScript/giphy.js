@@ -54,10 +54,10 @@ function getGIF() {
 
 function upVote() {
 var socket = io.connect('http://rishi.doubletrouble.co:8000'); 
-socket.emit('event', {title: 'unkown', score: 1, url: mp4Link[i], word: q});
+socket.emit('event', {title: 'unkown', score: 'upvote', url: mp4Link[i], word: q});
 }
 
 function downVote() {
 var socket = io.connect('http://rishi.doubletrouble.co:8000'); 
-socket.emit('event', {title: 'unkown', score: 0, url: mp4Link[i], word: q});
+socket.emit('event', {title: 'unkown', score: 'downvote' , url: mp4Link[i], word: q});
 }
