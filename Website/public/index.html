@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> GifMeASummary </title>
+        <title> GifMeAMovie </title>
 
         <meta name="description" content="HomePage">
         <meta charset="UTF-8">
@@ -26,11 +26,11 @@
                 <button id="search-load" class="loadbutton" onclick="ExpandSearch()" href="#search">Search</button>
                 <div id="search-full" class="fullpagecontent">
                     <button id="search-return" class="backbutton" onclick="RecedeSearch()">Back</button>
-                    <form>
-                        <textarea type = "text" id = "summary" cols="100" rows="30" placeholder="Input Film Summary..." autofocus></textarea>
+                    <form id="container-query">
+                        <textarea type = "text" id = "film-name" placeholder="Movie Name" autofocus></textarea>
                         <br />
                         <br />
-                        <a id="submit-sum" class="stdbutton" onclick="callGetGIF()" type="submit">Search</a>
+                        <a id="submit-film" class="stdbutton" onclick="callGetGIF()" type="submit">Search</a>
                     </form>
                     <form class = "gif">
                         <span id = "searchgif"></span>
