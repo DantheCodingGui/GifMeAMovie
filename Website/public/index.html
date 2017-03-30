@@ -25,24 +25,27 @@
             <div id="search-container" class="loadedcontainer">
                 <button id="search-load" class="loadbutton" onclick="ExpandSearch()" href="#search">Search</button>
                 <div id="search-full" class="fullpagecontent">
-                    <button id="search-return" class="backbutton" onclick="RecedeSearch()">Back</button>
+                    <button id="search-tohome" class="backbutton" onclick="RecedeSearch()">Back</button>
                     <form id="container-query">
                         <textarea type = "text" id = "film-name" placeholder="Movie Name" autofocus></textarea>
                         <br />
                         <br />
-                        <a id="submit-film" class="stdbutton" onclick="callGetGIF()" type="submit">Search</a>
+                        <a id="submit-film" class="stdbutton" onclick="ExpandGif(); callGetGIF()" type="submit">Search</a>
                     </form>
+                </div>
+				<div id="search-gif" class="fullpagecontent">
+					<button id="search-fromresults" class="backbutton" onclick="RecedeGif()">Back</button>
                     <form class = "gif">
                         <span id = "searchgif"></span>
                     </form>
-                    <button id="upvote" class="stdbutton" onclick="upVote()">Is Relevant</button>
-                    <button id="downvote" class="stdbutton" onclick="downVote()">Is Not Relevant</button>
-                </div>
+                    <button id="upvote" class="stdbutton" onclick="upVote()">Too Easy!</button>
+                    <button id="downvote" class="stdbutton" onclick="downVote()">Too Hard!</button>
+				</div>
             </div>
             <div id="quiz-container" class="loadedcontainer">
                 <button id="quiz-load" class="loadbutton" onclick="ExpandQuiz()">Play</button>
                 <div id="quiz-full" class="fullpagecontent">
-                    <button id="quiz-return" class="backbutton" onclick="RecedeQuiz()">Back</button>
+                    <button id="quiz-tohome" class="backbutton" onclick="RecedeQuiz()">Back</button>
                     <div class="divTableGIF">
                         <div class="divTableRow">
                             <span onLoad="getGIF()" id = "quizgif"></span>

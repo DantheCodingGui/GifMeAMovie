@@ -11,8 +11,8 @@ function callGetGIF() {
     myarray = idf(document.getElementById("film-name").value);//accessing html field (user typed summary)
     //runs string through idf() from tfidf.js
     q = myarray[0];                                     
-    document.getElementById("film-name").remove();
-    document.getElementById("submit-film").remove();
+	document.getElementById("upvote").display = "block";
+	document.getElementById("downvote").display = "block";
     getGIF();
 }
 

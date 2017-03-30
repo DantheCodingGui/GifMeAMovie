@@ -1,89 +1,42 @@
-/*useless for the time being, remove later if not needed
-function ExpandSearch () {
-	but = document.getElementById("search-container");
-	but.style.width = "100%";
-	but.style.backgroundSize = "100% 100%";
-	but.style.position = "absolute";
-	but.style.left = 0;
-	but.style.top = 0;
-	document.getElementById("quiz-container").style.position = "relative";
-	document.getElementById("quiz-container").style.zIndex = -1;
-	but.style.zIndex = 5;
-}
 
-function ExpandQuiz () {
-	but = document.getElementById("quiz-container");
-	but.style.width = "100%";
-	but.style.backgroundSize = "100% 100%";
-	but.style.position = "absolute";
-	but.style.right = 0;
-	but.style.top = 0;
-	document.getElementById("search-container").style.position = "relative";
-	document.getElementById("search-container").style.zIndex = -1;
-	but.style.zIndex = 5;
-}
-*/
-
-function ExpandSearch() {
+function ExpandSearch() { //expand the home page search button to the full page content
 	unload = document.getElementById("search-load");
 	load = document.getElementById("search-full");
 	unload.style.opacity = 0;
 	DelayStateTransitions(unload, load, true, 0);
 }
-
-function ExpandQuiz() {
-	unload = document.getElementById("quiz-load");
-	load = document.getElementById("quiz-full");
-	unload.style.opacity = 0;
-	DelayStateTransitions(unload, load, true, 1);
-}
-
-function RecedeSearch() {
+function RecedeSearch() { //recede the full page content back to the home page
 	unload = document.getElementById("search-full");
 	load = document.getElementById("search-load");
 	unload.style.opacity = 0;
 	DelayStateTransitions(unload, load, false, 0);
 }
 
+function ExpandQuiz() {//expand the home page play button to the full quiz content
+	unload = document.getElementById("quiz-load");
+	load = document.getElementById("quiz-full");
+	unload.style.opacity = 0;
+	DelayStateTransitions(unload, load, true, 1);
+}
 function RecedeQuiz() {
 	unload = document.getElementById("quiz-full");
 	load = document.getElementById("quiz-load");
 	unload.style.opacity = 0;
 	DelayStateTransitions(unload, load, false, 1);	
 }
-/*searchLoad = false;
-quizLoad = false;
 
-//toggles visibility of the two elements in the left and right div's
-function ToggleElemLoad (side) {
-	if (side == 0) { //just clicked 'Search'
-		if (searchLoad == false) {
-			unload = document.getElementById("search-load");
-			load = document.getElementById("search-full");
-			expand = searchLoad = true;
-		}
-		else {
-			unload = document.getElementById("search-full");
-			load = document.getElementById("search-load");
-			expand = searchLoad = false;
-		}
-	}
-	else if (side == 1) { //just clicked 'Play'
-		if (quizLoad == false) {
-			unload = document.getElementById("quiz-load");
-			load = document.getElementById("quiz-full");
-			expand = quizLoad = true;
-		}
-		else {
-			unload = document.getElementById("quiz-full");
-			load = document.getElementById("quiz-load");
-			expand = quizLoad = false;
-		}
-	}
+function ExpandGif() { //transitions from search page to results page
+	unload = document.getElementById("search-full");
+	load = document.getElementById("search-gif");
 	unload.style.opacity = 0;
-	DelayStateTransitions(unload, load, expand, side);	
+	DelayStateTransitions(unload, load, -1, 0);
 }
-*/
+function RecedeGif() { //transitions from results page back to search page
+	unload = document.getElementById("search-gif");
+	load = document.getElementById("search-full");
+	unload.style.opacity = 0;
+	DelayStateTransitions(unload, load, -1 , 1);
+}
 
 //expands the left or right div to full page width to show 
 //their corresponding content
@@ -104,6 +57,7 @@ function ExpandContent (sideToExpand) {
 	otherSide.style.zIndex = -1;
 	focusSide.style.zIndex = 5;
 }
+
 
 //opposite of above function, returns full page back to initial state
 function RecedeContent (sideToRecede) {
@@ -127,12 +81,14 @@ function DelayStateTransitions(unload, load, expand, side) {
 	setTimeout(function() { //delays removal of button by transition length
 		unload.style.display = "none";
 	}, 300);
-	setTimeout(function() {
-		if (expand)
-			ExpandContent(side);
-		else
-			RecedeContent(side);
-	}, 400);
+	if (expand != -1) {
+		setTimeout(function() {
+			if (expand)
+				ExpandContent(side);
+			else
+				RecedeContent(side);
+		}, 400);
+	}
 	setTimeout(function() {
 		load.style.display = "block";
 	}, 900);
