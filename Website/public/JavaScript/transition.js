@@ -1,11 +1,18 @@
+var searchExpanded = false;
+var quizExpanded = false;
+
 
 function ExpandSearch() { //expand the home page search button to the full page content
+	if (quizExpanded) //prevents user expanding both pages when pressed fast enough
+		return;
+	searchExpanded = true;
 	unload = document.getElementById("search-load");
 	load = document.getElementById("search-full");
 	unload.style.opacity = 0;
 	DelayStateTransitions(unload, load, true, 0);
 }
 function RecedeSearch() { //recede the full page content back to the home page
+	searchExpanded = false;
 	unload = document.getElementById("search-full");
 	load = document.getElementById("search-load");
 	unload.style.opacity = 0;
@@ -13,12 +20,16 @@ function RecedeSearch() { //recede the full page content back to the home page
 }
 
 function ExpandQuiz() {//expand the home page play button to the full quiz content
+	if (searchExpanded)
+		return;
+	quizExpanded = true;
 	unload = document.getElementById("quiz-load");
 	load = document.getElementById("quiz-full");
 	unload.style.opacity = 0;
 	DelayStateTransitions(unload, load, true, 1);
 }
 function RecedeQuiz() {
+	quizExpanded = false;
 	unload = document.getElementById("quiz-full");
 	load = document.getElementById("quiz-load");
 	unload.style.opacity = 0;
@@ -26,6 +37,7 @@ function RecedeQuiz() {
 }
 
 function ExpandGif() { //transitions from search page to results page
+	//document.body.style.cursor = "wait";
 	unload = document.getElementById("search-full");
 	load = document.getElementById("search-gif");
 	unload.style.opacity = 0;
