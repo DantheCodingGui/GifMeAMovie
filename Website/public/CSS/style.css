@@ -107,7 +107,8 @@ button.backbutton:hover {
 } 
 .stdbutton:hover {
 	/*background: #d9d9d9;*/
-
+	background: rgba(255, 255, 255, .3);
+	color: white;
 }
 
 /*whole page container*/
@@ -167,6 +168,7 @@ button.backbutton:hover {
 /*container holding the film name input box and submit button*/
 #container-query {
 	margin-top: 10%;
+	display: inline-block;
 }
 /*text area for inputting */
 #film-name {
@@ -186,10 +188,13 @@ button.backbutton:hover {
 	outline: none;
 	resize: none;
 }
+#film-name:focus {
+	
+}
 
 /*submit film summary for analysis*/
 #submit-film {
-	
+	margin: 20px;
 }
 
 /*change database values for gif relevance*/

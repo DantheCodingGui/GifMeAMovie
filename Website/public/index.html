@@ -26,11 +26,9 @@
                 <button id="search-load" class="loadbutton" onclick="ExpandSearch()" href="#search">Search</button>
                 <div id="search-full" class="fullpagecontent">
                     <button id="search-tohome" class="backbutton" onclick="RecedeSearch()">Back</button>
-                    <form id="container-query">
-                        <textarea type = "text" id = "film-name" placeholder="Movie Name" autofocus></textarea>
-                        <br />
-                        <br />
-                        <a id="submit-film" class="stdbutton" onclick="ExpandGif(); callGetGIF()" type="submit">Search</a>
+                    <form id="container-query" onsubmit="javascript:ExpandGif(); javascript:callGetGIF(); return false;">
+                        <input type="text" id = "film-name" placeholder="Movie Name" required>
+                        <input type="submit" id="submit-film" class="stdbutton" value="Search for Gifs">
                     </form>
                 </div>
 				<div id="search-gif" class="fullpagecontent">

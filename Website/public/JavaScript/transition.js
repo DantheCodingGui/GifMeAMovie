@@ -32,6 +32,7 @@ function ExpandGif() { //transitions from search page to results page
 	DelayStateTransitions(unload, load, -1, 0);
 }
 function RecedeGif() { //transitions from results page back to search page
+	document.getElementById("film-name").value = '';
 	unload = document.getElementById("search-gif");
 	load = document.getElementById("search-full");
 	unload.style.opacity = 0;
