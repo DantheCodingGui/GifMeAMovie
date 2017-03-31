@@ -4,6 +4,19 @@ html, body {
 	margin: 0;
 } 
 
+/*titles on search and quiz pages*/
+h1 {
+	color: white;
+	font-size: 90px;
+	font-family: "Montserrat", "sans-serif";
+}
+
+/*centrally aligns all tables*/
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /*left and right container divs on main page*/
 div.loadedcontainer {
 	height: 100%;
@@ -111,6 +124,10 @@ button.backbutton:hover {
 	color: white;
 }
 
+.weightbutton {
+	margin: 20px;
+}
+
 /*whole page container*/
 #container-full { 
 	width: 100%;
@@ -156,6 +173,7 @@ button.backbutton:hover {
 	left: 0;
 }
 
+/*return from search results to search*/
 #search-fromresults {
 	left: 0;
 }
@@ -167,20 +185,20 @@ button.backbutton:hover {
 
 /*container holding the film name input box and submit button*/
 #container-query {
-	margin-top: 10%;
+	margin-top: 5%;
 	display: inline-block;
 }
 /*text area for inputting */
 #film-name {
-	width: 60%;
-  	height: 30px;
+	width: 100%;
+  	height: 40px;
 	padding: 0.5em;
 	margin: 1px;
 
   	border: 0.1em solid #cccccc;
 	border-radius: 0.2em;
 	
-  	font-size: 30px;
+  	font-size: 34px;
 	font-family: "Montserrat", "sans-serif";
 	text-align: center;
 	
@@ -188,27 +206,22 @@ button.backbutton:hover {
 	outline: none;
 	resize: none;
 }
-#film-name:focus {
-	
-}
+
 
 /*submit film summary for analysis*/
 #submit-film {
-	margin: 20px;
+	margin: 30px;
+}
+
+/*table of the upvote and downvote buttons*/
+#gif-weight-buttons {
+	position: alsolute;
 }
 
 /*change database values for gif relevance*/
 #upvote {
-	display: block;
-	position: absolute;
-	top: 80%;
-	left: 30%;
 }
 #downvote {
-	display: block;
-	position: absolute;
-	top: 80%;
-	right: 30%;
 }
 
 .divTableGIF{

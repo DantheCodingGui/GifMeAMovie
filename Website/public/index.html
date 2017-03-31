@@ -25,6 +25,7 @@
             <div id="search-container" class="loadedcontainer">
                 <button id="search-load" class="loadbutton" onclick="ExpandSearch()" href="#search">Search</button>
                 <div id="search-full" class="fullpagecontent">
+					<h1>Search</h1>
                     <button id="search-tohome" class="backbutton" onclick="RecedeSearch()">Back</button>
                     <form id="container-query" onsubmit="javascript:ExpandGif(); javascript:callGetGIF(); return false;">
                         <input type="text" id = "film-name" placeholder="Movie Name" required>
@@ -36,13 +37,18 @@
                     <form class = "gif">
                         <span id = "searchgif"></span>
                     </form>
-                    <button id="upvote" class="stdbutton" onclick="upVote()">Too Easy!</button>
-                    <button id="downvote" class="stdbutton" onclick="downVote()">Too Hard!</button>
+					<table id="gif-weight-buttons">
+						<tr>
+							<td> <button id="upvote" class="stdbutton weightbutton" onclick="upVote()">Too Easy!</button> </td>
+							<td> <button id="downvote" class="stdbutton weightbutton" onclick="downVote()">Too Hard!</button> </td>
+						</tr>
+					</table>
 				</div>
             </div>
             <div id="quiz-container" class="loadedcontainer">
                 <button id="quiz-load" class="loadbutton" onclick="ExpandQuiz()">Play</button>
                 <div id="quiz-full" class="fullpagecontent">
+					<h1>Quiz</h1>
                     <button id="quiz-tohome" class="backbutton" onclick="RecedeQuiz()">Back</button>
                     <div class="divTableGIF">
                         <div class="divTableRow">

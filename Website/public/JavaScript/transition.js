@@ -53,7 +53,6 @@ function ExpandContent (sideToExpand) {
 	focusSide.style.width = "100%";
 	focusSide.style.backgroundSize = "100% 100%";
 	focusSide.style.position = "absolute";
-	//focusSide.style.top = 0;
 	otherSide.style.position = "relative";
 	otherSide.style.zIndex = -1;
 	focusSide.style.zIndex = 5;
