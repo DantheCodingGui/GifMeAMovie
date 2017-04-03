@@ -11,10 +11,15 @@ h1 {
 	font-family: "Montserrat", "sans-serif";
 }
 
+h2 {
+	color: white;
+	font-size: 50px;
+	font-family: "Montserrat", "sans-serif";
+}
+
 /*centrally aligns all tables*/
 table {
-	margin-left: auto;
-	margin-right: auto;
+	margin: auto;
 }
 
 /*left and right container divs on main page*/
@@ -58,6 +63,7 @@ button.loadbutton {
 button.loadbutton:hover {
 	font-size: 77px !important;
 	color: #ffffff;
+	cursor: pointer;
 }
 
 /*generic full page content*/
@@ -95,6 +101,7 @@ button.backbutton {
 }
 button.backbutton:hover {
 	background: rgba(255, 255, 255, .3);
+	cursor: pointer;
 }
 
 /*gif display formatting*/
@@ -111,7 +118,7 @@ button.backbutton:hover {
     height: 60px;
     background: white;
 	border: 3px solid #cccccc;
-    padding-top: 20px;
+    padding: 15px;
     text-align: center;
     border-radius: 5px;
 	font-size:20px;
@@ -119,19 +126,25 @@ button.backbutton:hover {
     font-weight: bold;
 } 
 .stdbutton:hover {
-	/*background: #d9d9d9;*/
 	background: rgba(255, 255, 255, .3);
 	color: white;
+	cursor: pointer;
 }
 
+/*shared upvote and downvote button styles*/
 .weightbutton {
 	margin: 20px;
+}
+
+.quizanswer {
+	width: 250px;
+	height: 100px;
 }
 
 /*whole page container*/
 #container-full { 
 	width: 100%;
-	min-width: 700px;
+	min-width: 950px;
 	height: 100%;
 	min-height: 300px;
 	position: fixed;
@@ -176,6 +189,13 @@ button.backbutton:hover {
 /*return from search results to search*/
 #search-fromresults {
 	left: 0;
+}
+
+/*Quiz title positioned to the corner*/
+#quiz-title {
+	position: absolute;
+	top: 0;
+	left: 50px;
 }
 
 /*return from quiz to home page*/
@@ -243,7 +263,7 @@ button.backbutton:hover {
 }
 .divTableCell, .divTableHead {
 	display: table-cell;
-	padding: 30px 0px;
+	padding: 10px 0px;
 }
 .divTableHeading {
 	background-color: #EEE;
@@ -258,3 +278,4 @@ button.backbutton:hover {
 .divTableBody {
 	display: table-row-group;
 }
+
