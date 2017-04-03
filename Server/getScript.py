@@ -15,7 +15,7 @@ def getscript(filmURL, filmName):
     tree = getTree(filmURL)
     page = tree.xpath("//a[contains(., '')]/@href")
     scriptTree = getTree("http://www.imsdb.com"+page[67])
-    scriptPage = scriptTree.xpath("//pre/text()")
+    scriptPage = scriptTree.xpath("//pre/text()[normalize-space(/)]")
 #The option below will write to file
     saveToFile(scriptPage, filmName)
 
