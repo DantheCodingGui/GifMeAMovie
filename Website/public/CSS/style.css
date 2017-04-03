@@ -58,7 +58,6 @@ button.loadbutton {
 button.loadbutton:hover {
 	font-size: 77px !important;
 	color: #ffffff;
-	cursor: pointer;
 }
 
 /*generic full page content*/
@@ -96,7 +95,6 @@ button.backbutton {
 }
 button.backbutton:hover {
 	background: rgba(255, 255, 255, .3);
-	cursor: pointer;
 }
 
 /*gif display formatting*/
@@ -113,7 +111,7 @@ button.backbutton:hover {
     height: 60px;
     background: white;
 	border: 3px solid #cccccc;
-    padding: 15px;
+    padding-top: 20px;
     text-align: center;
     border-radius: 5px;
 	font-size:20px;
@@ -121,12 +119,11 @@ button.backbutton:hover {
     font-weight: bold;
 } 
 .stdbutton:hover {
+	/*background: #d9d9d9;*/
 	background: rgba(255, 255, 255, .3);
 	color: white;
-	cursor: pointer;
 }
 
-/*shared upvote and downvote button styles*/
 .weightbutton {
 	margin: 20px;
 }
@@ -230,7 +227,7 @@ button.backbutton:hover {
 .divTableGIF{
 	display: table;
 	width: 100%;
-	margin-top: 10vh;
+	margin-top: 0vh;
 }
 .divTable{
 	display: table;
