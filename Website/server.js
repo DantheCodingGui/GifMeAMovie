@@ -1,14 +1,40 @@
-var express = require('express');
-var path = require('path');
-var app = express();
+var express = require('express');  
+var mongodb = require('mongodb');
+var MongoClient = require('mongodb').MongoClient;
+var app = express();  
+var server = require('http').createServer(app);  
+var io = require('socket.io')(server);
+var url = 'mongodb://localhost:27017/gifs';
 
-// Define the port to run on
-app.set('port', 8000);
-
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 // Listen for requests
-var server = app.listen(app.get('port'), function() {
-  var port = server.address().port;
-  console.log('Serving on port ' + port);
+app.get('/', function(req, res){
+    res.sendFile(__dirname + '/index.html');
 });
+
+io.on('connection', function(socket){
+    console.log('a user connected');
+
+    socket.on('event', function(data) {
+        MongoClient.connect(url, function(err, db) {
+            console.log("Connected to database");
+
+            insertDocuments(db, data, function() {
+                db.close();
+            });
+        });
+    });
+});
+
+var insertDocuments = function(db, data, callback) {
+    var collection = db.collection('gifs');
+    // Insert some documents 
+    collection.insert(data, function(err, result) {
+        console.log("Database entry made");
+        callback(result);
+    });
+}
+
+
+server.listen(8000);

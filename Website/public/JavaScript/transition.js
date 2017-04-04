@@ -1,89 +1,76 @@
-/*useless for the time being, remove later if not needed
-function ExpandSearch () {
-	but = document.getElementById("search-container");
-	but.style.width = "100%";
-	but.style.backgroundSize = "100% 100%";
-	but.style.position = "absolute";
-	but.style.left = 0;
-	but.style.top = 0;
-	document.getElementById("quiz-container").style.position = "relative";
-	document.getElementById("quiz-container").style.zIndex = -1;
-	but.style.zIndex = 5;
-}
+var searchExpanded = false;
+var quizExpanded = false;
+var searchResultsExpanded = false;
 
-function ExpandQuiz () {
-	but = document.getElementById("quiz-container");
-	but.style.width = "100%";
-	but.style.backgroundSize = "100% 100%";
-	but.style.position = "absolute";
-	but.style.right = 0;
-	but.style.top = 0;
-	document.getElementById("search-container").style.position = "relative";
-	document.getElementById("search-container").style.zIndex = -1;
-	but.style.zIndex = 5;
+//deals with issues involved with single page website
+//handles browser back button presses
+window.onpopstate = function(event) { 
+	if (searchExpanded && !searchResultsExpanded)
+		RecedeSearch();
+	else if (searchResultsExpanded)
+		RecedeGif();
+	else if (quizExpanded)
+		RecedeQuiz();
 }
-*/
-
-function ExpandSearch() {
+function ExpandSearch() { //expand the home page search button to the full page content
+	if (quizExpanded) //prevents user expanding both pages when pressed fast enough
+		return;
+	searchExpanded = true;
+	history.pushState({page: "Search"}, "search", "#search");
 	unload = document.getElementById("search-load");
 	load = document.getElementById("search-full");
 	unload.style.opacity = 0;
 	DelayStateTransitions(unload, load, true, 0);
 }
-
-function ExpandQuiz() {
-	unload = document.getElementById("quiz-load");
-	load = document.getElementById("quiz-full");
-	unload.style.opacity = 0;
-	DelayStateTransitions(unload, load, true, 1);
-}
-
-function RecedeSearch() {
+function RecedeSearch() { //recede the full page content back to the home page
+	searchExpanded = false;
 	unload = document.getElementById("search-full");
 	load = document.getElementById("search-load");
 	unload.style.opacity = 0;
 	DelayStateTransitions(unload, load, false, 0);
 }
 
+function ExpandQuiz() {//expand the home page play button to the full quiz content
+	if (searchExpanded)
+		return;
+	quizExpanded = true;
+	history.pushState({page: "Quiz"}, "Quiz", '#quiz');
+	unload = document.getElementById("quiz-load");
+	load = document.getElementById("quiz-full");
+	unload.style.opacity = 0;
+	DelayStateTransitions(unload, load, true, 1);
+	//Starts the quiz
+	showGif();
+	nextquestion();
+}
 function RecedeQuiz() {
+	quizExpanded = false;
 	unload = document.getElementById("quiz-full");
 	load = document.getElementById("quiz-load");
 	unload.style.opacity = 0;
 	DelayStateTransitions(unload, load, false, 1);	
+	//Reset the quiz
+	current = -1;
+	score = 0;	
 }
-/*searchLoad = false;
-quizLoad = false;
 
-//toggles visibility of the two elements in the left and right div's
-function ToggleElemLoad (side) {
-	if (side == 0) { //just clicked 'Search'
-		if (searchLoad == false) {
-			unload = document.getElementById("search-load");
-			load = document.getElementById("search-full");
-			expand = searchLoad = true;
-		}
-		else {
-			unload = document.getElementById("search-full");
-			load = document.getElementById("search-load");
-			expand = searchLoad = false;
-		}
-	}
-	else if (side == 1) { //just clicked 'Play'
-		if (quizLoad == false) {
-			unload = document.getElementById("quiz-load");
-			load = document.getElementById("quiz-full");
-			expand = quizLoad = true;
-		}
-		else {
-			unload = document.getElementById("quiz-full");
-			load = document.getElementById("quiz-load");
-			expand = quizLoad = false;
-		}
-	}
+function ExpandGif() { //transitions from search page to results page
+	//document.body.style.cursor = "wait";
+	searchResultsExpanded = true;
+	history.pushState({page: "Search-Results"}, "Search Results", "#results");
+	unload = document.getElementById("search-full");
+	load = document.getElementById("search-gif");
 	unload.style.opacity = 0;
-	DelayStateTransitions(unload, load, expand, side);	
+	DelayStateTransitions(unload, load, -1, 0);
 }
-*/
+function RecedeGif() { //transitions from results page back to search page
+	searchResultsExpanded = false;
+	document.getElementById("film-name").value = '';
+	unload = document.getElementById("search-gif");
+	load = document.getElementById("search-full");
+	unload.style.opacity = 0;
+	DelayStateTransitions(unload, load, -1 , 1);
+}
 
 //expands the left or right div to full page width to show 
 //their corresponding content
@@ -99,11 +86,11 @@ function ExpandContent (sideToExpand) {
 	focusSide.style.width = "100%";
 	focusSide.style.backgroundSize = "100% 100%";
 	focusSide.style.position = "absolute";
-	//focusSide.style.top = 0;
 	otherSide.style.position = "relative";
 	otherSide.style.zIndex = -1;
 	focusSide.style.zIndex = 5;
 }
+
 
 //opposite of above function, returns full page back to initial state
 function RecedeContent (sideToRecede) {
@@ -127,12 +114,14 @@ function DelayStateTransitions(unload, load, expand, side) {
 	setTimeout(function() { //delays removal of button by transition length
 		unload.style.display = "none";
 	}, 300);
-	setTimeout(function() {
-		if (expand)
-			ExpandContent(side);
-		else
-			RecedeContent(side);
-	}, 400);
+	if (expand != -1) {
+		setTimeout(function() {
+			if (expand)
+				ExpandContent(side);
+			else
+				RecedeContent(side);
+		}, 400);
+	}
 	setTimeout(function() {
 		load.style.display = "block";
 	}, 900);
