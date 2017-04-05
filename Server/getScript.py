@@ -7,6 +7,7 @@ def getTree(URL):
     return tree
 0
 def saveToFile(script, filmName):
+    filmName = filmName.replace(":","") #Swaps ":" to a space as ":" is not a legal filename character in windows.
     f = open("FilmScript/" + str(filmName) + ".txt","w")
     f.write(str(script))
     f.close()
@@ -35,7 +36,6 @@ filmNames = tree.xpath("//a[contains(., '')]/text()")
 
 baseURL = "http://www.imsdb.com"
 
-#current crawler is for single element
 for i in range (64 , 1229): # 64, 1229):
     getscript(baseURL+filmLinks[i+4], filmNames[i])   #uncomment line 33 and change 500 to i to fix
     #print(filmNames[i])
