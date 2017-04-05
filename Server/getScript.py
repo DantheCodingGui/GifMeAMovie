@@ -8,6 +8,7 @@ def getTree(URL):
 0
 def saveToFile(script, filmName):
     filmName = filmName.replace(":","") #Swaps ":" to a space as ":" is not a legal filename character in windows.
+    filmName = filmName.replace("?","")
     f = open("FilmScript/" + str(filmName) + ".txt","w")
     f.write(str(script))
     f.close()
@@ -24,8 +25,11 @@ def getscript(filmURL, filmName):
         #Gets the movie script.
         scriptTree = getTree("http://www.imsdb.com"+page[i])
         scriptPage = scriptTree.xpath("//pre/text()")
-
-        saveToFile(scriptPage, filmName)    #call save to file function.
+        #print(scriptPage)
+        if scriptPage == []:
+            scriptPage = scriptTree.xpath("//td[@class = 'scrtext']/text()")
+        if scriptPage == []:
+            saveToFile(scriptPage, filmName)    #call save to file function.
 
 #This URL gets the crawler to a page with links to all of the scripts
 baseURL = "http://www.imsdb.com/all%20scripts"
@@ -36,7 +40,7 @@ filmNames = tree.xpath("//a[contains(., '')]/text()")
 
 baseURL = "http://www.imsdb.com"
 
-for i in range (64 , 1229): # 64, 1229):
+for i in range (64 , 164): # This range is all of the films as an index
     getscript(baseURL+filmLinks[i+4], filmNames[i])   #uncomment line 33 and change 500 to i to fix
     #print(filmNames[i])
     #print(filmLinks[i+4])
