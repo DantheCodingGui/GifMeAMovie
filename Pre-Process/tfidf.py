@@ -4,6 +4,8 @@ import string
 from operator import itemgetter
 from nltk.corpus import stopwords
 import os
+import json
+from pymongo import MongoClient
 
 # Calculates the term frequency for each word
 def termFreq(textList,totalWords):
@@ -48,21 +50,53 @@ def formatIDF():
     idfList = [(idfList[x], float(idfList[x+1])) for x in range (len(idfList)) if x % 2 == 0]
     return idfList
 
-def openFilmScripts():
-    #for filename in os.listdir("FilmScript"):
-    f = open("FilmScript/Ant-Man-2015.txt")
+def openFilmScripts(fileName):
+    f = open("FilmScript/" + fileName)
     fileText = f.read()
     f.close()
+
+    return fileText
+
+def GetTopWords(tdf):
+    words = []
+    for i in range (0,10):
+        words += [tdf[i][0]]
+
+    return words
+
+if __name__ == "__main__":
+
+    client = MongoClient('mongodb://rishi.doubletrouble.co:27017')
+    db = client['gifs']
+
+    collection = db['gifs']
+
+
+    filename = "Alien-1979.txt"
+    #for filename in os.listdir("FilmScript"):
+
+    fileText = openFilmScripts(filename)
     fileList = textToListFormat(fileText)
     totalWords = len(fileList)
     tf = termFreq(fileList,totalWords)
     tf.sort()
+
     idf = formatIDF()
+
     tdf = tfidf(tf,idf)
     tdf.sort(key=itemgetter(1))
     tdf.reverse()
-    for i in range(0,20):
-        print(tdf[i][0])
 
-if __name__ == "__main__":
-    openFilmScripts()
+    words = GetTopWords(tdf)
+
+    filename = filename[:-4].replace("-"," ")
+
+    post = {"title": filename,
+            "words": words}
+
+    posts = db.posts
+    #post_id = posts.insert_one(post).inserted_id
+    #post_id
+
+
+    db.collection_names(include_system_collections=False)
