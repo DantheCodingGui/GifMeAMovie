@@ -1,63 +1,68 @@
 from collections import Counter
+import re
+import string
+from operator import itemgetter
+from nltk.corpus import stopwords
+import os
 
-#This is used to remove Punctuation from a string
-def removePunctuation(string):
-    punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''       #All the characters to remove from the string
-    text_no_punct = ""
-    for char in string:                         #Goes through every char in the string
-        if char not in punctuations:            #If the char not in the punctuations string
-            text_no_punct = text_no_punct + char    #Add the char to the a new string
-    text_no_punct = text_no_punct.rstrip()
-    text_no_punct = text_no_punct + " "
-    return text_no_punct[1:]                    #Return the Text after the first char because the first char maybe the n of \n
+# Calculates the term frequency for each word
+def termFreq(textList,totalWords):
+    topWords = Counter(textList).most_common()
+    wordTermFreq = [(pair[0], pair[1]/totalWords) for pair in topWords]
+    return wordTermFreq
 
-#This is to fetch all the film summaries and return them in a string
-def fetchFilmSummaries(NumOfFiles):
-    counter = 0                         #A counter initalised to 0
-    all_text_no_punct = ""
-    while (counter < NumOfFiles):       #While counter is less than the Number of file
-        f = open("FilmSummary/" + str(counter) + ".txt", "r")       #Open the file
-        string = f.read()                                           #Read file contents
-        f.close()                                                   #Close the file
-        all_text_no_punct = all_text_no_punct + removePunctuation(string)   #Remove the punctuation from the file input and add it on a different string
-        counter += 1            #Increment Counter by 1
-    return all_text_no_punct    #Return all the film summaries with punctuation removed
+# Makes the text lower case and remove text tags such as \n
+def textToListFormat(textInput):
+    textInput = textInput.lower()
+    textList = textInput.split()
+    textList = [ re.sub(r'[^\w\s]','',x.replace('\\n',' ').replace('\\t',' ')) for x in textList]
+    textList = list(filter(None, textList))
+    return textList
 
-#This is to get just the word from the list of tuples
-def getWordTuples(df):
-    allWords = ""
-    for i in range(0,len(df)):      #For i between 0 and length of df
-        wordTuple = df[i]           #To get the tuple pair (word,frequency)
-        word = wordTuple[0]         #To get the word part of the tuple
-        allWords = allWords + word + " "        #Just add the word to a string
-    return allWords
+def tfidf(termFreq, invDocFreq):
+    i = 0;
+    j = 0;
+    tfidf = []
+    stop = set(stopwords.words('english'))
 
-#Main
-if __name__ == '__main__':
-    df = fetchFilmSummaries(10000)
-    df = df.lower()             #To make all the letters lowercase
-    df = Counter(df.split()).most_common()      #To get the frequency for all the words
-    df = getWordTuples(df)
+    while ((i < len(termFreq)) and (j < len(invDocFreq))):
 
-    #To save the output to a file
-    f = open("df.txt","w")
-    f.write(str(df))
+        if(termFreq[i][0] == invDocFreq[j][0]):
+            if termFreq[i][0] not in stop:
+                tfidf.extend([(termFreq[i][0],"{0:.25f}".format(termFreq[i][1]*invDocFreq[j][1]))])
+            i += 1
+            j += 1
+        elif(termFreq[i][0] > invDocFreq[j][0]):
+            j += 1
+        elif(termFreq[i][0] < invDocFreq[j][0]):
+            i += 1
+
+    return tfidf
+
+def formatIDF():
+    f = open("IDF/dfCalc.txt")
+    idftext = f.read()
     f.close()
+    idftext = idftext[1:-1].replace('(','').replace(')','').replace(' ','').replace("'",'')
+    idfList = list(idftext.split(','))
+    idfList = [(idfList[x], float(idfList[x+1])) for x in range (len(idfList)) if x % 2 == 0]
+    return idfList
 
-#Unit Testing
-import unittest
+def openFilmScripts():
+    #for filename in os.listdir("FilmScript"):
+    f = open("FilmScript/Ant-Man-2015.txt")
+    fileText = f.read()
+    f.close()
+    fileList = textToListFormat(fileText)
+    totalWords = len(fileList)
+    tf = termFreq(fileList,totalWords)
+    tf.sort()
+    idf = formatIDF()
+    tdf = tfidf(tf,idf)
+    tdf.sort(key=itemgetter(1))
+    tdf.reverse()
+    for i in range(0,20):
+        print(tdf[i][0])
 
-class Test_tfidf(unittest.TestCase):
-    def test_removePunctuation(self):
-        FilmSummaryFormatInput = "\nAn African-American father struggles wi[]th race relation#s in the Unite~d States while tryin\"g to raise his f\"amily in t[]he 1950s and comin//g to terms with the events of his life."
-        FilmSummaryFormatOutput = "An AfricanAmerican father struggles with race relations in the United States while trying to raise his family in the 1950s and coming to terms with the events of his life "
-        self.assertEqual(removePunctuation(FilmSummaryFormatInput), FilmSummaryFormatOutput)
-
-    def test_getWordTuples(self):
-        wordTuplesInput = [("The",2),("cat",5),("sat",1),("in",2)]
-        wordTuplesOutput = "The cat sat in "
-        self.assertEqual(getWordTuples(wordTuplesInput), wordTuplesOutput)
-
-    def test_fetchFilmSummaries(self):
-        FilmSummariesOutput = "Holding a mysterious leather suitcase in his hand Newt Scamander a young activist wizard from England visits New York while he is on his way to Arizona Inside his expanding suitcase hides a wide array of diverse magical creatures that exist among us ranging from tiny twiglike ones to majestic and humongous ones It is the middle of the 20s and times are troubled since the already fragile equilibrium of secrecy between the unseen world of wizards and the ordinary or NoMaj people that the MACUSA Congress struggles to maintain is at risk of being unsettled In the meantime the voices against wizardry keep growing with daily protests led by Mary Lou Barebone and fuelled by the increasing disasters ascribed to a dark wizard Gellert Grindelwald At the same time by a twist of fate Newts precious suitcase will be switched with the identical one of an aspiring NoMaj baker Jacob Kowalski while demoted Auror Tina Goldstein arrests Newt for being an unregistered wizard To When mysterious spacecraft touch down across the globe an elite team  led by expert linguist Louise Banks  is brought together to investigate As mankind teeters on the verge of global war Banks and the team race against time for answers  and to find them she will take a chance that could threaten her life and quite possibly humanity "
-        self.assertEqual(fetchFilmSummaries(2), FilmSummariesOutput)
+if __name__ == "__main__":
+    openFilmScripts()
