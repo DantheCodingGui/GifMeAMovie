@@ -12,6 +12,9 @@ window.onpopstate = function(event) {
 	else if (quizExpanded)
 		RecedeQuiz();
 }
+
+
+
 function ExpandSearch() { //expand the home page search button to the full page content
 	if (quizExpanded) //prevents user expanding both pages when pressed fast enough
 		return;
