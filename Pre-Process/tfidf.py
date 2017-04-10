@@ -2,10 +2,8 @@ from collections import Counter
 import re
 import string
 from operator import itemgetter
-from nltk.corpus import stopwords
 import os
 import json
-from pymongo import MongoClient
 
 # Calculates the term frequency for each word
 def termFreq(textList,totalWords):
@@ -25,13 +23,11 @@ def tfidf(termFreq, invDocFreq):
     i = 0;
     j = 0;
     tfidf = []
-    stop = set(stopwords.words('english'))
 
     while ((i < len(termFreq)) and (j < len(invDocFreq))):
 
         if(termFreq[i][0] == invDocFreq[j][0]):
-            if termFreq[i][0] not in stop:
-                tfidf.extend([(termFreq[i][0],"{0:.25f}".format(termFreq[i][1]*invDocFreq[j][1]))])
+            tfidf.extend([(termFreq[i][0],"{0:.25f}".format(termFreq[i][1]*invDocFreq[j][1]))])
             i += 1
             j += 1
         elif(termFreq[i][0] > invDocFreq[j][0]):
@@ -65,38 +61,25 @@ def GetTopWords(tdf):
     return words
 
 if __name__ == "__main__":
+    f = open("FilmAndWords.json","w")
+    #filename = "Alien-1979.txt"
+    for filename in os.listdir("FilmScript"):
+        fileText = openFilmScripts(filename)
+        fileList = textToListFormat(fileText)
+        totalWords = len(fileList)
+        tf = termFreq(fileList,totalWords)
+        tf.sort()
 
-    client = MongoClient('mongodb://rishi.doubletrouble.co:27017')
-    db = client['gifs']
+        idf = formatIDF()
 
-    collection = db['gifs']
+        tdf = tfidf(tf,idf)
+        tdf.sort(key=itemgetter(1))
+        tdf.reverse()
 
+        words = GetTopWords(tdf)
 
-    filename = "Alien-1979.txt"
-    #for filename in os.listdir("FilmScript"):
+        filename = filename[:-4].replace("-"," ")
 
-    fileText = openFilmScripts(filename)
-    fileList = textToListFormat(fileText)
-    totalWords = len(fileList)
-    tf = termFreq(fileList,totalWords)
-    tf.sort()
+        f.write(json.dumps({'FilmName': filename, 'Words': words}, sort_keys=True, indent=4))
 
-    idf = formatIDF()
-
-    tdf = tfidf(tf,idf)
-    tdf.sort(key=itemgetter(1))
-    tdf.reverse()
-
-    words = GetTopWords(tdf)
-
-    filename = filename[:-4].replace("-"," ")
-
-    post = {"title": filename,
-            "words": words}
-
-    posts = db.posts
-    #post_id = posts.insert_one(post).inserted_id
-    #post_id
-
-
-    db.collection_names(include_system_collections=False)
+    f.close()
