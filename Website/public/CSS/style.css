@@ -27,6 +27,24 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
+/*style placeholder text for search box*/
+::-webkit-input-placeholder { /*Chrome/Opera/Safari*/
+  color: DarkGrey;
+  font-family: "Montserrat", "sans-serif";
+}
+::-moz-placeholder { /*Firefox 19+*/
+  color: DarkGrey;
+  font-family: "Montserrat", "sans-serif";
+}
+:-ms-input-placeholder { /*IE 10+*/
+  color: DarkGrey;
+  font-family: "Montserrat", "sans-serif";
+}
+:-moz-placeholder { /*Firefox 18-*/
+  color: DarkGrey;
+  font-family: "Montserrat", "sans-serif";
+}
+
 /*left and right container divs on main page*/
 div.loadedcontainer {
 	height: 100%;
@@ -122,17 +140,16 @@ button.backbutton:hover {
     width: 200px;
     height: 60px;
     background: white;
-	border: 3px solid #cccccc;
+	border: 2px solid #cccccc;
     padding: 15px;
     text-align: center;
     border-radius: 5px;
 	font-size:20px;
-    color: black;
+    color: #777777;
     font-weight: bold;
 } 
 .stdbutton:hover {
-	background: rgba(255, 255, 255, .3);
-	color: white;
+	background: #e6e6e6;
 	cursor: pointer;
 }
 
