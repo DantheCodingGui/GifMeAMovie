@@ -52,10 +52,17 @@ div.loadedcontainer {
 	background-size: 200% 100%;
 	z-index: 1;
 	
-	transition: all .4s ease-in-out;
-	transition-property: 
-		width,
-		background-size;
+	-webkit-transition:	all .4s ease-in-out;
+	-moz-transition:	all .4s ease-in-out;
+	-o-transition: 		all .4s ease-in-out;
+	-ms-transition:		all .4s ease-in-out;
+	transition: 		all .4s ease-in-out;
+	
+	-webkit-transition-property:	width, background-size;
+	-moz-transition-property: 		width, background-size;
+	-o-transition-property:			width, background-size;
+	-ms-transition-property:		width, background-size;
+	transition-property: 			width, background-size;
 }
 
 /*buttons inside in front of container to transition to full pages*/
@@ -76,7 +83,32 @@ button.loadbutton {
 	opacity: 1;
 	display: inline;
 	
-	transition: all 0.4s ease-in-out;
+	-webkit-transition:	all .4s ease-in-out;
+	-moz-transition:	all .4s ease-in-out;
+	-o-transition: 		all .4s ease-in-out;
+	-ms-transition:		all .4s ease-in-out;
+	transition: 		all .4s ease-in-out;
+	
+	-webkit-transition-property:		
+		font-size, 
+		color, 
+		background-image,
+		opacity;
+	-moz-transition-property:
+		font-size, 
+		color, 
+		background-image,
+		opacity;
+	-o-transition-property:	
+		font-size, 
+		color, 
+		background-image,
+		opacity;
+	-ms-transition-property:
+		font-size, 
+		color, 
+		background-image,
+		opacity;
 	transition-property: 
 		font-size, 
 		color, 
@@ -98,7 +130,11 @@ div.fullpagecontent {
 	display: none;
 	opacity: 0;
 	
-	transition: all 0.3s ease-in-out;
+	-webkit-transition:	all .3s ease-in-out;
+	-moz-transition:	all .3s ease-in-out;
+	-o-transition: 		all .3s ease-in-out;
+	-ms-transition:		all .3s ease-in-out;
+	transition: 		all .3s ease-in-out;
 }
 
 /*takes user from full page to index page*/
@@ -120,7 +156,11 @@ button.backbutton {
 	font-size: 40px;
 	color: #ffffff;
 	
-	transition: background-color 0.3s ease-in-out;
+	-webkit-transition:	background-color 0.3s ease-in-out;
+	-moz-transition:	background-color 0.3s ease-in-out;
+	-o-transition: 		background-color 0.3s ease-in-out;
+	-ms-transition:		background-color 0.3s ease-in-out;
+	transition: 		background-color 0.3s ease-in-out;
 }
 button.backbutton:hover {
 	background: rgba(255, 255, 255, .3);
