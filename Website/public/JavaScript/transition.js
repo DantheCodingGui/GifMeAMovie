@@ -4,7 +4,7 @@ var searchResultsExpanded = false;
 
 //deals with issues involved with single page website
 //handles browser back button presses
-window.onpopstate = function(event) { 
+/*window.onpopstate = function(event) { 
 	if (searchExpanded && !searchResultsExpanded)
 		RecedeSearch();
 	else if (searchResultsExpanded)
@@ -12,14 +12,13 @@ window.onpopstate = function(event) {
 	else if (quizExpanded)
 		RecedeQuiz();
 }
-
-
+*/
 
 function ExpandSearch() { //expand the home page search button to the full page content
 	if (quizExpanded) //prevents user expanding both pages when pressed fast enough
 		return;
 	searchExpanded = true;
-	history.pushState({page: "Search"}, "search", "#search");
+	//history.pushState({page: "Search"}, "search", "#search");
 	unload = document.getElementById("search-load");
 	load = document.getElementById("search-full");
 	unload.style.opacity = 0;
@@ -37,7 +36,7 @@ function ExpandQuiz() {//expand the home page play button to the full quiz conte
 	if (searchExpanded)
 		return;
 	quizExpanded = true;
-	history.pushState({page: "Quiz"}, "Quiz", '#quiz');
+	//history.pushState({page: "Quiz"}, "Quiz", '#quiz');
 	unload = document.getElementById("quiz-load");
 	load = document.getElementById("quiz-full");
 	unload.style.opacity = 0;
@@ -60,7 +59,7 @@ function RecedeQuiz() {
 function ExpandGif() { //transitions from search page to results page
 	//document.body.style.cursor = "wait";
 	searchResultsExpanded = true;
-	history.pushState({page: "Search-Results"}, "Search Results", "#results");
+	//history.pushState({page: "Search-Results"}, "Search Results", "#results");
 	unload = document.getElementById("search-full");
 	load = document.getElementById("search-gif");
 	unload.style.opacity = 0;

@@ -22,6 +22,11 @@ table {
 	margin: auto;
 }
 
+/*prevents default search textbox behaviour of turning yellow upon an autocomplete*/
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 /*left and right container divs on main page*/
 div.loadedcontainer {
 	height: 100%;
