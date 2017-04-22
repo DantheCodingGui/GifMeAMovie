@@ -198,9 +198,54 @@ button.backbutton:hover {
 	margin: 20px;
 }
 
+/*dimentions for quiz answers(larger to occupy more screen space)*/
 .quizanswer {
 	width: 250px;
 	height: 100px;
+}
+
+/*container for quiz gif*/
+.divTableGIF{
+	display: table;
+	width: 100%;
+	margin-top: 0vh;
+}
+/*table of quiz answers*/
+.divTable{
+	display: table;
+	width: 100%;
+	margin-top: 0px;
+}
+/*quiz answers row*/
+.divTableRow {
+	display: table-row;
+}
+/* UNUSED AT CURRENT TIME
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+*/
+/*quiz answer table cell*/
+.divTableCell, .divTableHead { /*divTableHead UNUSED AT CURRENT TIME*/
+	display: table-cell;
+	padding: 10px 0px;
+}
+/* UNUSED AT CURRENT TIME
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+*/
+/*inner quiz answers table container*/
+.divTableBody {
+	display: table-row-group;
 }
 
 /*whole page container*/
@@ -289,7 +334,6 @@ button.backbutton:hover {
 	resize: none;
 }
 
-
 /*submit film summary for analysis*/
 #submit-film {
 	margin: 30px;
@@ -299,45 +343,3 @@ button.backbutton:hover {
 #gif-weight-buttons {
 	position: alsolute;
 }
-
-/*change database values for gif relevance*/
-#upvote {
-}
-#downvote {
-}
-
-.divTableGIF{
-	display: table;
-	width: 100%;
-	margin-top: 0vh;
-}
-.divTable{
-	display: table;
-	width: 100%;
-	margin-top: 0px;
-}
-.divTableRow {
-	display: table-row;
-}
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
-}
-.divTableCell, .divTableHead {
-	display: table-cell;
-	padding: 10px 0px;
-}
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
-	font-weight: bold;
-}
-.divTableFoot {
-	background-color: #EEE;
-	display: table-footer-group;
-	font-weight: bold;
-}
-.divTableBody {
-	display: table-row-group;
-}
-
