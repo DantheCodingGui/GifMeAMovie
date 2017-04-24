@@ -209,12 +209,16 @@ button.backbutton:hover {
 	display: table;
 	width: 100%;
 	margin-top: 0vh;
+	position: absolute;
+	top: 20%;
 }
 /*table of quiz answers*/
 .divTable{
 	display: table;
 	width: 100%;
 	margin-top: 0px;
+	position: absolute;
+	bottom: 10%;
 }
 /*quiz answers row*/
 .divTableRow {
@@ -229,7 +233,8 @@ button.backbutton:hover {
 /*quiz answer table cell*/
 .divTableCell, .divTableHead { /*divTableHead UNUSED AT CURRENT TIME*/
 	display: table-cell;
-	padding: 10px 0px;
+	padding: 15px;
+	vertical-align: top; /*fixes bug with first answers set column having extra padding*/
 }
 /* UNUSED AT CURRENT TIME
 .divTableHeading {
@@ -253,7 +258,7 @@ button.backbutton:hover {
 	width: 100%;
 	min-width: 950px;
 	height: 100%;
-	min-height: 300px;
+	min-height: 800px;
 	position: fixed;
 }
 
@@ -301,8 +306,8 @@ button.backbutton:hover {
 /*Quiz title positioned to the corner*/
 #quiz-title {
 	position: absolute;
-	top: 0;
-	left: 50px;
+	top: -20px;
+	left: 40px;
 }
 
 /*return from quiz to home page*/
@@ -345,5 +350,4 @@ button.backbutton:hover {
 	margin-right: auto;
 	position: relative;
 	top: 70%;
-	
 }
