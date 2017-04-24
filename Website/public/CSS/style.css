@@ -341,5 +341,9 @@ button.backbutton:hover {
 
 /*table of the upvote and downvote buttons*/
 #gif-weight-buttons {
-	position: alsolute;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	top: 70%;
+	
 }
