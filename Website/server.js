@@ -25,7 +25,13 @@ io.on('connection', function(socket){
             });
         });
     });
+
+    socket.on('queryDB', function(data) {
+        console.log("SOCKETS OP");
+        console.log(data);
+    });
 });
+
 
 var insertDocuments = function(db, data, callback) {
     var collection = db.collection('gifs');

@@ -1,6 +1,7 @@
 //giph.js handles the giphy api
 //input = 10 word strings stored in array
 //output = 10 gifs that are played on repeat
+var socket = io.connect('http://rishi.doubletrouble.co:8000'); 
 var reviewSubmitted = 0;
 var myarray;//array that stores words- usually 10
 var q; //q represents the string search query for the giphy API
@@ -8,11 +9,14 @@ var i = 0; // counter
 var mp4Link = []; //array to store the mp4 link of the gif to help with future implementations
 
 function callGetGIF() {
-    myarray = idf(document.getElementById("film-name").value);//accessing html field (user typed summary)
-    //runs string through idf() from tfidf.js
+    var filmName = document.getElementById("film-name").value;
+    myarray = idf(filmName);//accessing html field (user typed summary)
+    socket.emit('queryDB', {title: filmName});
+    
+
     q = myarray[0];                                     
-	document.getElementById("upvote").display = "block";
-	document.getElementById("downvote").display = "block";
+    document.getElementById("upvote").display = "block";
+    document.getElementById("downvote").display = "block";
     getGIF();
 }
 
@@ -53,11 +57,12 @@ function getGIF() {
 }
 
 function upVote() {
-var socket = io.connect('http://rishi.doubletrouble.co:8000'); 
-socket.emit('event', {title: 'unkown', score: 'upvote', url: mp4Link[i], word: q});
+    var socket = io.connect('http://rishi.doubletrouble.co:8000'); 
+    socket.emit('event', {title: 'unkown', score: 'upvote', url: mp4Link[i], word: q});
 }
 
 function downVote() {
-var socket = io.connect('http://rishi.doubletrouble.co:8000'); 
-socket.emit('event', {title: 'unkown', score: 'downvote' , url: mp4Link[i], word: q});
+    var socket = io.connect('http://rishi.doubletrouble.co:8000'); 
+    socket.emit('event', {title: 'unkown', score: 'downvote' , url: mp4Link[i], word: q});
 }
+

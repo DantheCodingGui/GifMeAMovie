@@ -1,25 +1,19 @@
 var mongodb = require('mongodb');
 var MongoClient = require('mongodb').MongoClient;
 var url = 'mongodb://localhost:27017/gifs';
-var fs = require("fs");
-var content = fs.readFileSync("example.json");
+var Words = ["axax"];
 
-var jSon = JSON.parse(content); //parse JSON
-
-console.log("Output Content : \n"+ content);
 
 MongoClient.connect(url, function(err, db) {
     console.log("Connected to database");
-    insertDocuments(db, jSon, function() {
+    var collection = db.collection('gifs');
+
+        collection.find({ 'FilmName': "3 Idiots" }).forEach( function(myDoc) { 
+            console.log( "Words: " + myDoc.Words ); 
+        } )
+
     db.close();
-    });
 });
 
-var insertDocuments = function(db, data, callback) {
-    var collection = db.collection('gifs');
-    // Insert some documents 
-    collection.insert(data, function(err, result) {
-    console.log("Database entry made");
-    callback(result);
-    });
-}
+
+// {"Words": true, "FilmName": false, "_id": false}
