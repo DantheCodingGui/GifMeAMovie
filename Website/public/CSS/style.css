@@ -9,12 +9,14 @@ h1 {
 	color: white;
 	font-size: 90px;
 	font-family: "Montserrat", "sans-serif";
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 h2 {
 	color: white;
 	font-size: 50px;
 	font-family: "Montserrat", "sans-serif";
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 /*centrally aligns all tables*/
@@ -72,13 +74,14 @@ button.loadbutton {
 	border: none;
 	outline: none;
 	background-color: transparent;
-	background-image: url("../images/default.jpg");
+	/*background-image: url("../images/default.jpg");*/
 	background-size: 200% 100%;
 	
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
 	font-size: 0px;
-	color: #666666;
+	color: #777777;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	
 	opacity: 1;
 	display: inline;
@@ -145,6 +148,8 @@ button.backbutton {
 	min-height: 90px;
 	border: none;
 	outline: none;
+	
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	
 	position: absolute;
 	top: 0;
@@ -265,7 +270,7 @@ button.backbutton:hover {
 /*search(left side) container*/
 #search-container { 
 	float: left;
-	background-image: url("../images/search_background.jpg");
+	background-image: url("../images/search.jpg");
 	background-position: left top;
 }
 
@@ -273,24 +278,26 @@ button.backbutton:hover {
 #quiz-container { 
 	float: right;
 	right: 0;
-	background-image: url("../images/quiz_background.jpg");
+	background-image: url("../images/play.jpg");
 	background-position: right top;
 }
 
 /*search load button*/
 #search-load { 
 	background-position: left top;
+	background-image: url("../images/default-search.jpg");
 }
 #search-load:hover { 
-	background-image: url("../images/search_background.jpg");
+	background-image: url("../images/search.jpg");
 }
 
 /*quiz load button*/
 #quiz-load {
 	background-position: right top;
+	background-image: url("../images/default-play.jpg");
 }
 #quiz-load:hover { 
-	background-image: url("../images/quiz_background.jpg");
+	background-image: url("../images/play.jpg");
 }
 
 /*return from search to home page*/
