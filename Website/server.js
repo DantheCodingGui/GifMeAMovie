@@ -16,19 +16,24 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
     console.log('a user connected');
 
-    socket.on('event', function(data) {
-        MongoClient.connect(url, function(err, db) {
-            console.log("Connected to database");
-
-            insertDocuments(db, data, function() {
-                db.close();
-            });
-        });
-    });
-
+    //following code receives film name from giphy.js and queries the db for words
     socket.on('queryDB', function(data) {
-        console.log("SOCKETS OP");
-        console.log(data);
+        filmTitle = data; //make new object called filmTitle
+        console.log(filmTitle); //print title (debugging)
+
+        MongoClient.connect(url, function(err, db) { //connect to DB
+            console.log("Connected to database");
+            var collection = db.collection('gifs'); //define collection of documents
+
+            var query = {'FilmName': filmTitle.title } //define query
+            collection.find(query).forEach( function(myDoc) { //send words to giphy.js
+                console.log( "Words: " + myDoc.Words ); 
+            
+                io.emit('array', {Words: myDoc.Words});
+            } )
+
+            db.close();
+        });
     });
 });
 
