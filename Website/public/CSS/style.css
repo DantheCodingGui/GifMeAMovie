@@ -2,6 +2,7 @@
 html, body { 
 	height: 100%;
 	margin: 0;
+	overflow: hidden;
 } 
 
 /*titles on search and quiz pages*/
@@ -362,41 +363,75 @@ button.backbutton:hover {
 /*---------------------------------------Responsiveness Code---------------------------------------*/
 
 /*applies to portrait smartphones*/
-@media only screen and (min-width: 321px) and (max-device-width : 480px) {
+@media only screen and (max-device-width: 599px) and (max-aspect-ratio: 121/80) {
 	div.loadedcontainer {
-	height: 50%; /*mediatarget*/
-	width: 100%;
-	background-size: 100% 200%;
-}
-	button.loadbutton { 
-		background-size: 100% 200%; 		
+		height: 50%; 
+		width: 100%;
+		background-size: 100% 200%;
+		transition: none;
 	}
+	
+	button.loadbutton { 
+		color: white;
+		background-size: 100% 200%; 
+		transition: none;
+		font-size: 75px;
+	}
+	
+	/*generic full page content*/
+	div.fullpagecontent {
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		
+		display: none;
+		/*DELETE LATER*/
+		opacity: 1;
+		transition: none;
+	}
+	
 	/*search load button*/
 	#search-load { 
-		background-position: left top; /*mediatarget*/
-		background-image: url("../images/default-search-portrait.jpg"); /*mediatarget*/
+		background-position: left top; 
+		background-image: url("../images/search-portrait.jpg"); 
+	}
+	#search-load:hover {
+		background-image: url("../images/search-portrait.jpg"); 
 	}
 
 	/*quiz load button*/
 	#quiz-load {
 		background-position: left bottom;
-		background-image: url("../images/default-play-portrait.jpg"); /*mediatarget*/
+		background-image: url("../images/play-portrait.jpg"); 
+	}
+	#quiz-load:hover {
+		background-image: url("../images/play-portrait.jpg"); 
 	}
 	
-	/*search(left side) container*/
+	/*search(top) container*/
 	#search-container { 
-		float: top; /*mediatarget*/
-		background-image: url("../images/search-portrait.jpg"); /*mediatarget*/
-		background-position: left top; /*mediatarget*/
+		background-image: url("../images/search-portrait.jpg"); 
+		background-position: left top; 
 	}
 
-	/*quiz/play(right side) container*/
-	#quiz-container { 
-		float: bottom; /*mediatarget*/
-		bottom: 0;
-		background-image: url("../images/play-portrait.jpg"); /*mediatarget*/
-		background-position: left bottom; /*mediatarget*/
+	/*quiz/play(bottom) container*/
+	#quiz-container {
+		top: 50%;
+		left: 0;
+		bottom: 100%;
+		background-image: url("../images/play-portrait.jpg"); 
+		background-position: left bottom;
 	}
+	
+	#container-full { 
+		width: 100%;
+		height: 100%;
+		position: static;
+	}
+}
+/*applies to landscape smartphones*/
+@media only screen and (max-device-width: 599px) and (min-aspect-ratio: 121/80) {
+	
 }
 /*
 @media only screen and (min-width: 1920px) {

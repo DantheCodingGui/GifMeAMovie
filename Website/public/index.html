@@ -6,7 +6,7 @@
         <meta name="description" content="HomePage">
         <meta charset="UTF-8">
         <meta name="keywords" content="Gif, Summary, Film, Movie, Quiz">
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src ="JavaScript/tfidf.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script src ="JavaScript/transition.js"></script>
@@ -17,7 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     </head>
 
-    <body onload="LoadButtons()">
+    <body onload="init()">
         <div id="container-full">
             <div id="search-container" class="loadedcontainer">
                 <button id="search-load" class="loadbutton" onclick="ExpandSearch()">Search</button>
