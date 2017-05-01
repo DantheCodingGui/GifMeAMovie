@@ -62,6 +62,7 @@ def GetTopWords(tdf):
 
 if __name__ == "__main__":
     f = open("FilmAndWords.json","w")
+    f.write('[')
     #filename = "Alien-1979.txt"
     for filename in os.listdir("FilmScript"):
         fileText = openFilmScripts(filename)
@@ -80,6 +81,7 @@ if __name__ == "__main__":
 
         filename = filename[:-4].replace("-"," ")
 
-        f.write(json.dumps({'FilmName': filename, 'Words': words}, sort_keys=True, indent=4))
+        f.write(json.dumps({'FilmName': filename, 'Words': words}, sort_keys=True, indent=4) + ',')
 
+    f.write(']')
     f.close()

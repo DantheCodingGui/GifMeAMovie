@@ -27,58 +27,38 @@ def saveToFile(FilmName, FilmScript):
 
 #Get the film script from springfieldspringfield website
 def getFilmScript(filmTuple):
-    filmName = formatFilmNameFirst(filmTuple[0])
+    filmName = formatFilmName(filmTuple[0])
     filmDate = formatFilmDate(filmTuple[1])
+    URL = "http://www.springfieldspringfield.co.uk/movie_scripts.php?search=" + filmName
+    tree = getTree(URL)
+    print(filmName + " " + filmDate)
 
-    baseURL = ("http://www.springfieldspringfield.co.uk/movie_script.php?movie=" + str(filmName) + "-" + str(filmDate))
-    tree = getTree(baseURL)
-    script = tree.xpath("//*[@id='content_container']/div[3]/div[2]/div[2]/div/text()")
+    for i in range (1,18):
+        websiteFilmTitle = tree.xpath("//*[@id='content_container']/div[3]/div[2]/a[" + str(i) + "]/text()")
 
-    if script == []:
-        baseURL = ("http://www.springfieldspringfield.co.uk/movie_script.php?movie=" + str(filmName))
-        tree = getTree(baseURL)
-        script = tree.xpath("//*[@id='content_container']/div[3]/div[2]/div[2]/div/text()")
+        if websiteFilmTitle == []:
+            break;
 
-    if script == []:
-        filmName = formatFilmNameSnd(filmTuple[0])
-        baseURL = ("http://www.springfieldspringfield.co.uk/movie_script.php?movie=" + str(filmName) + "-" + str(filmDate))
-        tree = getTree(baseURL)
-        script = tree.xpath("//*[@id='content_container']/div[3]/div[2]/div[2]/div/text()")
+        if filmDate in websiteFilmTitle[0]:
+            filmScriptURL = tree.xpath("//*[@id='content_container']/div[3]/div[2]/a[" + str(i) + "]/@href")
+            URL = "http://www.springfieldspringfield.co.uk" + filmScriptURL[0]
+            tree = getTree(URL)
+            FilmScript = tree.xpath("//*[@id='content_container']/div[3]/div[2]/div[2]/div/text()")
+            saveToFile(filmName.replace("+"," ")+ " " + filmDate, FilmScript)
+            break;
 
-        if script == []:
-            baseURL = ("http://www.springfieldspringfield.co.uk/movie_script.php?movie=" + str(filmName))
-            tree = getTree(baseURL)
-            script = tree.xpath("//*[@id='content_container']/div[3]/div[2]/div[2]/div/text()")
 
-    #if script != []:
-    saveToFile((filmName + "-" + filmDate),script)
 
 #Used to format the name for the website search
-def formatFilmNameFirst(FilmName):
-    punctRemove = '''!()[]{};:'"\,<>./?@#$%^&*_~'''
+def formatFilmName(FilmName):
+    punctRemove = '''!()[]{};:'"\,<>./?@#$%^&*_~-'''
     FilmNameFormatted = ''
 
     for char in FilmName:
         if char not in punctRemove:
             FilmNameFormatted = FilmNameFormatted + char
 
-    FilmNameFormatted = FilmNameFormatted.replace(" - ","-").replace(" ","-").replace("--","-and-")
-    return FilmNameFormatted
-
-def formatFilmNameSnd(FilmName):
-    punctRemove = '''!()[]{};:'"\,<>./?@#$%^&*_~'''
-    FilmNameFormatted = ''
-
-    for char in FilmName:
-        if char not in punctRemove:
-            FilmNameFormatted = FilmNameFormatted + char
-
-    if (FilmNameFormatted[:4] == "The "):
-        FilmNameFormatted = FilmNameFormatted[4:] + str(" The")
-    elif(FilmNameFormatted[:2] == "A "):
-        FilmNameFormatted = FilmNameFormatted[2:] + str(" A")
-
-    FilmNameFormatted = FilmNameFormatted.replace(" - ","-").replace(" ","-").replace("--","-and-")
+    FilmNameFormatted = FilmNameFormatted.replace(" ","+").replace("++","+").replace("+++","+and+")
     return FilmNameFormatted
 
 def formatFilmDate(FilmDate):
@@ -89,9 +69,9 @@ def formatFilmDate(FilmDate):
 imdbURL1 = "http://www.imdb.com/search/title?languages=en&title_type=feature&page="
 imdbURL2 = "&sort=num_votes,desc"
 
-numPages = 21
+numPages = 101
 Films = []
-for i in range (11,numPages):
+for i in range (0,numPages):
     URL = imdbURL1 + str(i) + imdbURL2
     Films = GetFilmNames(URL,Films)
 
