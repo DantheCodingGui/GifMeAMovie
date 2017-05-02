@@ -24,7 +24,7 @@
                 <div id="search-full" class="fullpagecontent">
                     <h1>Search</h1>
                     <button id="search-tohome" class="backbutton" onclick="RecedeSearch()">Back</button>
-                    <form id="container-query" onsubmit="javascript:ExpandGif(); return false;"><!--javascript:callGetGIF(); return false;"-->
+                    <form id="container-query" onsubmit="javascript:ExpandGif(); javascript:callGetGIF(); return false;">
                         <input type="text" id = "film-name" placeholder="Movie Name" required>
                         <input type="submit" id="submit-film" class="stdbutton" value="Search for Gifs">
                     </form>
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div id="quiz-container" class="loadedcontainer">
-                <button id="quiz-load" class="loadbutton" onclick="ExpandQuiz()">Play</button>
+                <button id="quiz-load" class="loadbutton" onclick="ExpandQuiz(true)">Play</button>
                 <div id="quiz-full" class="fullpagecontent">
 					<h1 id="quiz-title">Quiz</h1>
                     <h2 id="score"></h2>

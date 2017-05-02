@@ -1,5 +1,6 @@
 var searchExpanded = false;
 var quizExpanded = false;
+var resultsExpanded = false;
 
 const DESKTOP = 0;
 const MOBILE_PORTRAIT = 1;
@@ -9,15 +10,15 @@ const SEARCH = 0;
 const QUIZ = 1;
 
 var screenType;
+var previousScreenType;
 
 SetScreenType();
+
 //ensures that if mobile users change orientation website will
 //respond without a reload
-
 function OrientationChange() {
-	document.getElementById("search-container").style.display = "initial";
-	document.getElementById("quiz-container").style.display = "initial";
-	window.setTimeout(SetScreenType,10);
+	//wait for css media query to take effect
+	window.setTimeout(SetScreenType,1);
 }
 
 function SetScreenType() {
@@ -25,21 +26,59 @@ function SetScreenType() {
 		screenType = MOBILE_PORTRAIT;
 	else if (window.matchMedia("screen and (min-device-width: 500px)and (max-device-width: 749px) and (min-aspect-ratio: 121/80)").matches)
 		screenType = MOBILE_LANDSCAPE;
-	else 
+	else {
 		screenType = DESKTOP;
-	//window.alert("screen type: " + screenType);
+		return;
+	}
+	ResetStyle();
 }
-//document.addEventListener("orientationchange", SetScreenType(), false);
+
+//resets css data for new orientation (if not in place will break)
+function ResetStyle() {
+	if (resultsExpanded) {
+		ExpandSearch()
+		ExpandGif();
+	}
+	else if (searchExpanded) 
+		ExpandSearch();
+	else if (quizExpanded) 
+		ExpandQuiz(false);
+	else {
+		if (previousScreenType == SEARCH) {
+			if (screenType == MOBILE_PORTRAIT) {
+				document.getElementById("search-container").style.width = "100%";
+				document.getElementById("search-container").style.height = "50%";
+			}
+			else if (screenType == MOBILE_LANDSCAPE) {
+				document.getElementById("search-container").style.width = "50%";
+				document.getElementById("search-container").style.height = "100%";
+			}
+		}
+		else if (previousScreenType == QUIZ) {
+			if (screenType == MOBILE_PORTRAIT) {
+				document.getElementById("quiz-container").style.width = "100%";
+				document.getElementById("quiz-container").style.height = "50%";
+			}
+			else if (screenType == MOBILE_LANDSCAPE) {
+				document.getElementById("quiz-container").style.width = "50%";
+				document.getElementById("quiz-container").style.height = "100%";
+				document.getElementById("quiz-container").style.top = "0%";
+			}
+		}
+	}
+}
 
 //expand the home page search button to the full page content
 function ExpandSearch() { 
-	unload = document.getElementById("search-load");
-	load = document.getElementById("search-full");
+	var unload = document.getElementById("search-load");
+	var load = document.getElementById("search-full");
+	searchExpanded = true;
 	switch(screenType) {
 		case DESKTOP: {
-			if (quizExpanded) //prevents user expanding both pages when pressed fast enough
+			if (quizExpanded) { //prevents user expanding both pages when pressed fast enough
+				searchExpanded = false;
 				return;
-			searchExpanded = true;
+			}
 			unload.style.opacity = 0;
 			DelayTransitions(unload, load, true, SEARCH);
 			break;
@@ -59,11 +98,12 @@ function ExpandSearch() {
 	}
 }
 function RecedeSearch() { //recede the full page content back to the home page
-	unload = document.getElementById("search-full");
-	load = document.getElementById("search-load");
+	var unload = document.getElementById("search-full");
+	var load = document.getElementById("search-load");
+	searchExpanded = false;
+	previousScreenType = SEARCH;
 	switch(screenType) {
 		case DESKTOP: {
-			searchExpanded = false;
 			unload.style.opacity = 0;
 			DelayTransitions(unload, load, false, SEARCH);
 			break;
@@ -87,14 +127,16 @@ function RecedeSearch() { //recede the full page content back to the home page
 	}
 }
 
-function ExpandQuiz() {//expand the home page play button to the full quiz content
-	unload = document.getElementById("quiz-load");
-	load = document.getElementById("quiz-full");
+function ExpandQuiz(shouldStartQuiz) {//expand the home page play button to the full quiz content
+	var unload = document.getElementById("quiz-load");
+	var load = document.getElementById("quiz-full");
+	quizExpanded = true;
 	switch(screenType) {
 		case DESKTOP: {
-			if (searchExpanded)
-					return;
-			quizExpanded = true;
+			if (searchExpanded) {
+				quizExpanded = false;
+				return;
+			}
 			unload.style.opacity = 0;
 			DelayTransitions(unload, load, true, QUIZ);
 			break;
@@ -112,17 +154,21 @@ function ExpandQuiz() {//expand the home page play button to the full quiz conte
 			ExpandContent(QUIZ, "width");
 			break;
 		}
-	}
+	} 
+	//below code will restart quiz, filter as function not always called from homepage
+	if (!shouldStartQuiz)
+		return;
 	//Starts the quiz logic
 	showGif();
 	nextquestion();
 }
 function RecedeQuiz() {
-	unload = document.getElementById("quiz-full");
-	load = document.getElementById("quiz-load");
+	var unload = document.getElementById("quiz-full");
+	var load = document.getElementById("quiz-load");
+	quizExpanded = false;
+	previousScreenType = QUIZ;
 	switch(screenType) {
 		case DESKTOP: {
-			quizExpanded = false;
 			unload.style.opacity = 0;
 			DelayTransitions(unload, load, false, QUIZ);
 			break;
@@ -151,8 +197,9 @@ function RecedeQuiz() {
 }
 
 function ExpandGif() { //transitions from search page to results page
-	unload = document.getElementById("search-full");
-	load = document.getElementById("search-gif");
+	var unload = document.getElementById("search-full");
+	var load = document.getElementById("search-gif");
+	resultsExpanded = true;
 	switch(screenType) {
 		case DESKTOP: {
 			unload.style.opacity = 0;
@@ -169,8 +216,9 @@ function ExpandGif() { //transitions from search page to results page
 }
 function RecedeGif() { //transitions from results page back to search page
 	document.getElementById("film-name").value = '';
-	unload = document.getElementById("search-gif");
-	load = document.getElementById("search-full");
+	var unload = document.getElementById("search-gif");
+	var load = document.getElementById("search-full");
+	resultsExpanded = false;
 	switch(screenType) {
 		case DESKTOP: {
 			unload.style.opacity = 0;
@@ -189,6 +237,7 @@ function RecedeGif() { //transitions from results page back to search page
 //expands the search or play div to full page width/height to show 
 //their corresponding content
 function ExpandContent (sideToExpand, dimention) {
+	var focusSide, otherSide;
 	if (sideToExpand == SEARCH) {
 		focusSide = document.getElementById("search-container");
 		otherSide = document.getElementById("quiz-container");
@@ -208,6 +257,7 @@ function ExpandContent (sideToExpand, dimention) {
 
 //opposite of above function, returns full page back to initial state
 function RecedeContent (sideToRecede, dimention) {
+	var focusSide, otherSide;
 	if (sideToRecede == SEARCH) {
 		focusSide = document.getElementById("search-container");
 		otherSide = document.getElementById("quiz-container");
@@ -248,12 +298,10 @@ function DelayTransitions(unload, load, expand, side) {
 function init() {
 	if (screenType != DESKTOP)
 		return;
-	left = document.getElementById("search-load");
-	right = document.getElementById("quiz-load");
 	setTimeout(function() {
-			left.style.fontSize = "75px";
+			document.getElementById("search-load").style.fontSize = "75px";
 	}, 100);
 	setTimeout(function() {
-		right.style.fontSize = "75px";
+		document.getElementById("quiz-load").style.fontSize = "75px";
 	}, 200);
 }

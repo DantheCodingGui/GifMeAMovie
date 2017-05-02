@@ -8,14 +8,14 @@ html, body {
 /*titles on search and quiz pages*/
 h1 {
 	color: white;
-	font-size: 100px;/*mediatarget*/
+	font-size: 100px;
 	font-family: "Montserrat", "sans-serif";
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 h2 {
 	color: white;
-	font-size: 50px;/*mediatarget*/
+	font-size: 50px;
 	font-family: "Montserrat", "sans-serif";
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
@@ -25,7 +25,6 @@ table {
 	margin: auto;
 }
 
-/*mediatarget*/
 /*prevents default search textbox behaviour of turning yellow upon an autocomplete*/
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
@@ -51,17 +50,17 @@ input:-webkit-autofill {
 
 /*left and right container divs on main page*/
 div.loadedcontainer {
-	height: 100%; /*mediatarget*/
+	height: 100%; 
 	width: 50%;
 	background-size: 200% 100%;
 	z-index: 1;
-	/*mediatarget*/
+	
 	-webkit-transition:	all .4s ease-in-out;
 	-moz-transition:	all .4s ease-in-out;
 	-o-transition: 		all .4s ease-in-out;
 	-ms-transition:		all .4s ease-in-out;
 	transition: 		all .4s ease-in-out;
-	/*mediatarget*/
+	
 	-webkit-transition-property:	width, background-size;
 	-moz-transition-property: 		width, background-size;
 	-o-transition-property:			width, background-size;
@@ -76,7 +75,7 @@ button.loadbutton {
 	border: none;
 	outline: none;
 	background-color: transparent;
-	background-size: 200% 100%; /*mediatarget*/
+	background-size: 200% 100%; 
 	
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
@@ -87,13 +86,13 @@ button.loadbutton {
 	
 	opacity: 1;
 	display: inline;
-	/*mediatarget*/
+	
 	-webkit-transition:	all .4s ease-in-out;
 	-moz-transition:	all .4s ease-in-out;
 	-o-transition: 		all .4s ease-in-out;
 	-ms-transition:		all .4s ease-in-out;
 	transition: 		all .4s ease-in-out;
-	/*mediatarget*/
+	
 	-webkit-transition-property:		
 		font-size, 
 		color, 
@@ -121,7 +120,7 @@ button.loadbutton {
 		opacity;
 }
 button.loadbutton:hover {
-	font-size: 90px !important; /*mediatarget*/
+	font-size: 90px !important; 
 	color: #ffffff;
 	cursor: pointer;
 }
@@ -134,7 +133,7 @@ div.fullpagecontent {
 	
 	display: none;
 	opacity: 0;
-	/*mediatarget*/
+	
 	-webkit-transition:	all .3s ease-in-out;
 	-moz-transition:	all .3s ease-in-out;
 	-o-transition: 		all .3s ease-in-out;
@@ -144,10 +143,10 @@ div.fullpagecontent {
 
 /*takes user from full page to index page*/
 button.backbutton {
-	width: 10%; /*mediatarget*/
-	min-width: 120px; /*mediatarget*/
-	height: 10%; /*mediatarget*/
-	min-height: 90px; /*mediatarget*/
+	width: 10%; 
+	min-width: 120px; 
+	height: 10%; 
+	min-height: 90px; 
 	border: none;
 	outline: none;
 	
@@ -160,9 +159,9 @@ button.backbutton {
 	
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
-	font-size: 40px; /*mediatarget*/
+	font-size: 40px; 
 	color: #ffffff;
-	/*mediatarget*/
+	
 	-webkit-transition:	background-color 0.3s ease-in-out;
 	-moz-transition:	background-color 0.3s ease-in-out;
 	-o-transition: 		background-color 0.3s ease-in-out;
@@ -176,21 +175,22 @@ button.backbutton:hover {
 
 /*gif display formatting*/
 .gif {
-	margin-top: 100px; /*mediatarget*/
+	margin-top: 100px; 
+	z-index = -1;
 }
 
 /*standard button design*/
 .stdbutton {
 	font-family: 'Montserrat', sans-serif;
     display: inline-block;
-    width: 200px; /*mediatarget*/
-    height: 60px; /*mediatarget*/
+    width: 200px; 
+    height: 60px; 
     background: white;
 	border: 2px solid #cccccc;
-    padding: 15px; /*mediatarget*/
+    padding: 15px; 
     text-align: center;
     border-radius: 5px;
-	font-size:20px; /*mediatarget*/
+	font-size:20px; 
     color: #777777;
     font-weight: bold;
 } 
@@ -201,13 +201,15 @@ button.backbutton:hover {
 
 /*shared upvote and downvote button styles*/
 .weightbutton {
-	margin: 20px; /*mediatarget*/
+	margin: 20px; 
+	z-index = 10;
 }
 
 /*dimentions for quiz answers(larger to occupy more screen space)*/
 .quizanswer {
-	width: 250px; /*mediatarget*/
-	height: 100px;/*mediatarget*/
+	width: 250px; 
+	height: 100px;
+	z-index = 10;
 }
 
 /*container for quiz gif*/
@@ -215,7 +217,8 @@ button.backbutton:hover {
 	display: table;
 	width: 100%;
 	position: absolute;
-	top: 20%;/*mediatarget*/
+	top: 20%;
+	z-index: -1;
 }
 /*table of quiz answers*/
 .divTable{
@@ -223,7 +226,7 @@ button.backbutton:hover {
 	width: 100%;
 	margin-top: 0px;
 	position: absolute;
-	bottom: 10%;/*mediatarget*/
+	bottom: 10%;
 }
 /*quiz answers row*/
 .divTableRow {
@@ -238,7 +241,7 @@ button.backbutton:hover {
 /*quiz answer table cell*/
 .divTableCell, .divTableHead { /*divTableHead UNUSED AT CURRENT TIME*/
 	display: table-cell;
-	padding: 15px;/*mediatarget*/
+	padding: 15px;
 	vertical-align: top; /*fixes bug with first answers set column having extra padding*/
 }
 /* UNUSED AT CURRENT TIME
@@ -261,43 +264,43 @@ button.backbutton:hover {
 /*whole page container*/
 #container-full { 
 	width: 100%;
-	/*min-width: 950px;*/ /*mediatarget*/
+	min-width: 950px;
 	height: 100%;
-	/*min-height: 800px;*/ /*mediatarget*/
+	min-height: 800px;
 	position: fixed;
 }
 
 /*search(left side) container*/
 #search-container { 
-	float: left; /*mediatarget*/
-	background-image: url("../images/search-landscape.jpg"); /*mediatarget*/
-	background-position: left top; /*mediatarget*/
+	float: left; 
+	background-image: url("../images/search-landscape.jpg"); 
+	background-position: left top; 
 }
 
 /*quiz/play(right side) container*/
 #quiz-container { 
-	float: right; /*mediatarget*/
+	float: right; 
 	right: 0;
-	background-image: url("../images/play-landscape.jpg"); /*mediatarget*/
-	background-position: right top; /*mediatarget*/
+	background-image: url("../images/play-landscape.jpg"); 
+	background-position: right top; 
 }
 
 /*search load button*/
 #search-load { 
-	background-position: left top; /*mediatarget*/
-	background-image: url("../images/default-search-landscape.jpg"); /*mediatarget*/
+	background-position: left top; 
+	background-image: url("../images/default-search-landscape.jpg"); 
 }
 #search-load:hover { 
-	background-image: url("../images/search-landscape.jpg"); /*mediatarget*/
+	background-image: url("../images/search-landscape.jpg"); 
 }
 
 /*quiz load button*/
 #quiz-load {
 	background-position: right top;
-	background-image: url("../images/default-play-landscape.jpg"); /*mediatarget*/
+	background-image: url("../images/default-play-landscape.jpg"); 
 }
 #quiz-load:hover { 
-	background-image: url("../images/play-landscape.jpg"); /*mediatarget*/
+	background-image: url("../images/play-landscape.jpg"); 
 }
 
 /*return from search to home page*/
@@ -313,8 +316,8 @@ button.backbutton:hover {
 /*Quiz title positioned to the corner*/
 #quiz-title {
 	position: absolute;
-	top: -20px; /*mediatarget*/
-	left: 40px; /*mediatarget*/
+	top: -20px; 
+	left: 40px; 
 }
 
 /*return from quiz to home page*/
@@ -324,20 +327,20 @@ button.backbutton:hover {
 
 /*container holding the film name input box and submit button*/
 #container-query {
-	margin-top: 5%; /*mediatarget*/
+	margin-top: 5%; 
 	display: inline-block;
 }
 /*text area for inputting */
 #film-name {
 	width: 100%;
-  	height: 40px; /*mediatarget*/
+  	height: 40px; 
 	padding: 0.5em;
 	margin: 1px;
 
   	border: 0.1em solid #cccccc;
 	border-radius: 0.2em;
 	
-  	font-size: 34px; /*mediatarget*/
+  	font-size: 34px; 
 	font-family: "Montserrat", "sans-serif";
 	text-align: center;
 	
@@ -348,7 +351,7 @@ button.backbutton:hover {
 
 /*submit film summary for analysis*/
 #submit-film {
-	margin: 30px; /*mediatarget*/
+	margin: 30px; 
 }
 
 /*table of the upvote and downvote buttons*/
@@ -356,7 +359,7 @@ button.backbutton:hover {
 	margin-left: auto;
 	margin-right: auto;
 	position: relative;
-	top: 70%; /*mediatarget*/
+	top: 70%; 
 }
 
 /*---------------------------------------Responsiveness Code---------------------------------------*/
@@ -364,12 +367,12 @@ button.backbutton:hover {
 /*applies to portrait smartphones*/
 @media only screen and (max-width: 499px) and (max-aspect-ratio: 121/80) {
 	h1 {
-		font-size: 75px;/*mediatarget*/
+		font-size: 75px;
 		padding-top: 20px;
 	}
 	
 	h2 {
-		font-size: 30px;/*mediatarget*/
+		font-size: 30px;
 	}
 	
 	td {
@@ -409,7 +412,7 @@ button.backbutton:hover {
 		text-align: center;
 		
 		display: none;
-		/*DELETE LATER*/
+		
 		opacity: 1;
 		transition: none;
 	}
@@ -448,6 +451,11 @@ button.backbutton:hover {
 	.weightbutton {
 		width: 100%;
 		margin: 0;
+		z-index: 5;
+	}
+	
+	.gif {
+		z-index: -1;
 	}
 	
 	/*search load button*/
@@ -486,7 +494,9 @@ button.backbutton:hover {
 	#container-full { 
 		width: 100%;
 		height: 100%;
-		position: static;
+		position: fixed;
+		min-height: 0;
+		min-width: 0;
 	}
 	
 	#film-name {
@@ -498,7 +508,7 @@ button.backbutton:hover {
 		border: 0.1em solid #cccccc;
 		border-radius: 0.2em;
 		
-		font-size: 34px; /*mediatarget*/
+		font-size: 34px; 
 		font-family: "Montserrat", "sans-serif";
 		text-align: center;
 		
@@ -509,8 +519,8 @@ button.backbutton:hover {
 	
 	#quiz-title {
 		position: absolute;
-		top: -70px; /*mediatarget*/
-		left: 20px; /*mediatarget*/
+		top: -70px; 
+		left: 20px; 
 	}
 	
 	#score {
@@ -533,12 +543,12 @@ button.backbutton:hover {
 @media only screen and (min-width: 500px) and (max-width: 749px) and (min-aspect-ratio: 121/80) {
 	
 	h1 {
-		font-size: 75px;/*mediatarget*/
+		font-size: 75px;
 		margin-top: 10px;
 	}
 	
 	h2 {
-		font-size: 7vh;/*mediatarget*/
+		font-size: 7vh;
 	}
 	
 	center {
@@ -569,7 +579,7 @@ button.backbutton:hover {
 		text-align: center;
 		
 		display: none;
-		/*DELETE LATER*/
+		
 		opacity: 1;
 		transition: none;
 	}
@@ -612,6 +622,11 @@ button.backbutton:hover {
 	.weightbutton {
 		width: 100%;
 		margin: 0;
+		z-index: 5;
+	}
+	
+	.gif {
+		z-index: -1;
 	}
 	
 	/*search load button*/
@@ -648,7 +663,9 @@ button.backbutton:hover {
 	#container-full { 
 		width: 100%;
 		height: 100%;
-		position: static;
+		position: fixed;
+		min-height: 0;
+		min-width: 0;
 	}
 	
 	#film-name {
