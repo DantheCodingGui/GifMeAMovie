@@ -271,7 +271,7 @@ button.backbutton:hover {
 /*search(left side) container*/
 #search-container { 
 	float: left; /*mediatarget*/
-	background-image: url("../images/search.jpg"); /*mediatarget*/
+	background-image: url("../images/search-landscape.jpg"); /*mediatarget*/
 	background-position: left top; /*mediatarget*/
 }
 
@@ -279,26 +279,26 @@ button.backbutton:hover {
 #quiz-container { 
 	float: right; /*mediatarget*/
 	right: 0;
-	background-image: url("../images/play.jpg"); /*mediatarget*/
+	background-image: url("../images/play-landscape.jpg"); /*mediatarget*/
 	background-position: right top; /*mediatarget*/
 }
 
 /*search load button*/
 #search-load { 
 	background-position: left top; /*mediatarget*/
-	background-image: url("../images/default-search.jpg"); /*mediatarget*/
+	background-image: url("../images/default-search-landscape.jpg"); /*mediatarget*/
 }
 #search-load:hover { 
-	background-image: url("../images/search.jpg"); /*mediatarget*/
+	background-image: url("../images/search-landscape.jpg"); /*mediatarget*/
 }
 
 /*quiz load button*/
 #quiz-load {
 	background-position: right top;
-	background-image: url("../images/default-play.jpg"); /*mediatarget*/
+	background-image: url("../images/default-play-landscape.jpg"); /*mediatarget*/
 }
 #quiz-load:hover { 
-	background-image: url("../images/play.jpg"); /*mediatarget*/
+	background-image: url("../images/play-landscape.jpg"); /*mediatarget*/
 }
 
 /*return from search to home page*/
@@ -363,7 +363,7 @@ button.backbutton:hover {
 /*---------------------------------------Responsiveness Code---------------------------------------*/
 
 /*applies to portrait smartphones*/
-@media only screen and (max-device-width: 599px) and (max-aspect-ratio: 121/80) {
+@media only screen and (max-width: 499px) and (max-aspect-ratio: 121/80) {
 	div.loadedcontainer {
 		height: 50%; 
 		width: 100%;
@@ -429,10 +429,73 @@ button.backbutton:hover {
 		position: static;
 	}
 }
+
 /*applies to landscape smartphones*/
-@media only screen and (max-device-width: 599px) and (min-aspect-ratio: 121/80) {
+@media only screen and (min-width: 500px) and (max-width: 850px) and (min-aspect-ratio: 121/80) {
+	div.loadedcontainer {
+		height: 100%; 
+		width: 50%;
+		background-size: 200% 100%;
+		transition: none;
+	}
 	
+	button.loadbutton { 
+		color: white;
+		background-size: 200% 100%; 
+		transition: none;
+		font-size: 75px;
+	}
+	
+	/*generic full page content*/
+	div.fullpagecontent {
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		
+		display: none;
+		/*DELETE LATER*/
+		opacity: 1;
+		transition: none;
+	}
+	
+	/*search load button*/
+	#search-load { 
+		background-position: left top; 
+		background-image: url("../images/search-landscape.jpg"); 
+	}
+	#search-load:hover {
+		background-image: url("../images/search-landscape.jpg"); 
+	}
+
+	/*quiz load button*/
+	#quiz-load {
+		background-position: right top;
+		background-image: url("../images/play-landscape.jpg"); 
+	}
+	#quiz-load:hover {
+		background-image: url("../images/play-landscape.jpg"); 
+	}
+	
+	/*search(top) container*/
+	#search-container { 
+		background-image: url("../images/search-landscape.jpg"); 
+		background-position: left top; 
+	}
+
+	/*quiz/play(bottom) container*/
+	#quiz-container {
+		right: 0;
+		background-image: url("../images/play-landscape.jpg"); 
+		background-position: right top;
+	}
+	
+	#container-full { 
+		width: 100%;
+		height: 100%;
+		position: static;
+	}
 }
+
 /*
 @media only screen and (min-width: 1920px) {
 	

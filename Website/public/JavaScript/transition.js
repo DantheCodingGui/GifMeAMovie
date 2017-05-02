@@ -4,6 +4,8 @@ var quizExpanded = false;
 const DESKTOP = 0;
 const MOBILE_PORTRAIT = 1;
 const MOBILE_LANDSCAPE = 2;
+const TABLET_PORTRAIT = 3;
+const TABLET_LANDSCAPE = 4;
 
 const SEARCH = 0;
 const QUIZ = 1;
@@ -15,13 +17,17 @@ var screenType;
 //respond without a reload
 
 function SetScreenType() {
-	//window.alert("orientation change");
-	if (window.matchMedia("screen and (max-device-width: 599px) and (max-aspect-ratio: 121/80)").matches)
+	if (window.matchMedia("screen and (max-device-width: 499px) and (max-aspect-ratio: 121/80)").matches)
 		screenType = MOBILE_PORTRAIT;
-	else if (window.matchMedia("screen and (max-device-width: 599px) and (min-aspect-ratio: 121/80)").matches)
+	else if (window.matchMedia("screen and (min-device-width: 500px)and (max-device-width: 850px) and (min-aspect-ratio: 121/80)").matches)
 		screenType = MOBILE_LANDSCAPE;
+	//else if ()
+	//	screenType = TABLET_PORTRAIT;
+	//else if ()
+	//	screenType = TABLET_LANDSCAPE;
 	else 
 		screenType = DESKTOP;
+	//window.alert("screen type: " + screenType);
 }
 //document.addEventListener("orientationchange", SetScreenType(), false);
 
@@ -57,6 +63,9 @@ function ExpandSearch() {
 			break;
 		}
 		case MOBILE_LANDSCAPE: {
+			unload.style.display = "none";
+			load.style.display = "block";
+			ExpandContent(SEARCH, "width");
 			break;
 		}
 	}
@@ -80,6 +89,11 @@ function RecedeSearch() { //recede the full page content back to the home page
 			break;
 		}
 		case MOBILE_LANDSCAPE: {
+			unload.style.display = "none";
+			load.style.display = "block";
+			RecedeContent(SEARCH, "width");
+			document.getElementById("search-container").style.position = "initial";
+			document.getElementById("quiz-container").style.position = "initial";
 			break;
 		}
 	}
@@ -106,6 +120,9 @@ function ExpandQuiz() {//expand the home page play button to the full quiz conte
 			break;
 		}
 		case MOBILE_LANDSCAPE: {
+			unload.style.display = "none";
+			load.style.display = "block";
+			ExpandContent(QUIZ, "width");
 			break;
 		}
 	}
@@ -133,6 +150,11 @@ function RecedeQuiz() {
 			break;
 		}
 		case MOBILE_LANDSCAPE: {
+			unload.style.display = "none";
+			load.style.display = "block";
+			RecedeContent(QUIZ, "width");
+			document.getElementById("search-container").style.position = "initial";
+			document.getElementById("quiz-container").style.position = "initial";
 			break;
 		}
 	}	
@@ -152,10 +174,10 @@ function ExpandGif() { //transitions from search page to results page
 			DelayTransitions(unload, load, -1, QUIZ);
 			break;
 		}
-		case MOBILE_PORTRAIT: {
-			break;
-		}
+		case MOBILE_PORTRAIT:
 		case MOBILE_LANDSCAPE: {
+			unload.style.display = "none";
+			load.style.display = "block";
 			break;
 		}
 	}	
@@ -170,10 +192,10 @@ function RecedeGif() { //transitions from results page back to search page
 			DelayTransitions(unload, load, -1, QUIZ);
 			break;
 		}
-		case MOBILE_PORTRAIT: {
-			break;
-		}
+		case MOBILE_PORTRAIT: 
 		case MOBILE_LANDSCAPE: {
+			unload.style.display = "none";
+			load.style.display = "block";
 			break;
 		}
 	}	
