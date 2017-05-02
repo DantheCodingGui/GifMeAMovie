@@ -4,8 +4,6 @@ var quizExpanded = false;
 const DESKTOP = 0;
 const MOBILE_PORTRAIT = 1;
 const MOBILE_LANDSCAPE = 2;
-const TABLET_PORTRAIT = 3;
-const TABLET_LANDSCAPE = 4;
 
 const SEARCH = 0;
 const QUIZ = 1;
@@ -25,29 +23,14 @@ function OrientationChange() {
 function SetScreenType() {
 	if (window.matchMedia("screen and (max-device-width: 499px) and (max-aspect-ratio: 121/80)").matches)
 		screenType = MOBILE_PORTRAIT;
-	else if (window.matchMedia("screen and (min-device-width: 500px)and (max-device-width: 850px) and (min-aspect-ratio: 121/80)").matches)
+	else if (window.matchMedia("screen and (min-device-width: 500px)and (max-device-width: 749px) and (min-aspect-ratio: 121/80)").matches)
 		screenType = MOBILE_LANDSCAPE;
-	//else if ()
-	//	screenType = TABLET_PORTRAIT;
-	//else if ()
-	//	screenType = TABLET_LANDSCAPE;
 	else 
 		screenType = DESKTOP;
 	//window.alert("screen type: " + screenType);
 }
 //document.addEventListener("orientationchange", SetScreenType(), false);
 
-//deals with issues involved with single page website
-//handles browser back button presses
-/*window.onpopstate = function(event) { 
-	if (searchExpanded && !searchResultsExpanded)
-		RecedeSearch();
-	else if (searchResultsExpanded)
-		RecedeGif();
-	else if (quizExpanded)
-		RecedeQuiz();
-}
-*/
 //expand the home page search button to the full page content
 function ExpandSearch() { 
 	unload = document.getElementById("search-load");
@@ -57,7 +40,6 @@ function ExpandSearch() {
 			if (quizExpanded) //prevents user expanding both pages when pressed fast enough
 				return;
 			searchExpanded = true;
-			//history.pushState({page: "Search"}, "search", "#search");
 			unload.style.opacity = 0;
 			DelayTransitions(unload, load, true, SEARCH);
 			break;
@@ -72,12 +54,6 @@ function ExpandSearch() {
 			unload.style.display = "none";
 			load.style.display = "block";
 			ExpandContent(SEARCH, "width");
-			break;
-		}
-		case TABLET_PORTRAIT: {
-			break;
-		}
-		case TABLET_LANDSCAPE: {
 			break;
 		}
 	}
@@ -108,12 +84,6 @@ function RecedeSearch() { //recede the full page content back to the home page
 			document.getElementById("quiz-container").style.position = "initial";
 			break;
 		}
-		case TABLET_PORTRAIT: {
-			break;
-		}
-		case TABLET_LANDSCAPE: {
-			break;
-		}
 	}
 }
 
@@ -125,7 +95,6 @@ function ExpandQuiz() {//expand the home page play button to the full quiz conte
 			if (searchExpanded)
 					return;
 			quizExpanded = true;
-			//history.pushState({page: "Quiz"}, "Quiz", '#quiz');
 			unload.style.opacity = 0;
 			DelayTransitions(unload, load, true, QUIZ);
 			break;
@@ -141,12 +110,6 @@ function ExpandQuiz() {//expand the home page play button to the full quiz conte
 			unload.style.display = "none";
 			load.style.display = "block";
 			ExpandContent(QUIZ, "width");
-			break;
-		}
-		case TABLET_PORTRAIT: {
-			break;
-		}
-		case TABLET_LANDSCAPE: {
 			break;
 		}
 	}
@@ -181,12 +144,6 @@ function RecedeQuiz() {
 			document.getElementById("quiz-container").style.position = "initial";
 			break;
 		}
-		case TABLET_PORTRAIT: {
-			break;
-		}
-		case TABLET_LANDSCAPE: {
-			break;
-		}
 	}	
 	//Reset the quiz
 	current = -1;
@@ -198,8 +155,6 @@ function ExpandGif() { //transitions from search page to results page
 	load = document.getElementById("search-gif");
 	switch(screenType) {
 		case DESKTOP: {
-			//document.body.style.cursor = "wait";
-			//history.pushState({page: "Search-Results"}, "Search Results", "#results");
 			unload.style.opacity = 0;
 			DelayTransitions(unload, load, -1, QUIZ);
 			break;
@@ -208,12 +163,6 @@ function ExpandGif() { //transitions from search page to results page
 		case MOBILE_LANDSCAPE: {
 			unload.style.display = "none";
 			load.style.display = "block";
-			break;
-		}
-		case TABLET_PORTRAIT: {
-			break;
-		}
-		case TABLET_LANDSCAPE: {
 			break;
 		}
 	}	
@@ -232,12 +181,6 @@ function RecedeGif() { //transitions from results page back to search page
 		case MOBILE_LANDSCAPE: {
 			unload.style.display = "none";
 			load.style.display = "block";
-			break;
-		}
-		case TABLET_PORTRAIT: {
-			break;
-		}
-		case TABLET_LANDSCAPE: {
 			break;
 		}
 	}	
@@ -273,18 +216,7 @@ function RecedeContent (sideToRecede, dimention) {
 		focusSide = document.getElementById("quiz-container");
 		otherSide = document.getElementById("search-container");
 	}
-	/*
-	if (window.matchMedia("(orientation: portrait)").matches) {
-		if (sideToRecede == 1)
-			focusSide.style.bottom = 0;
-		else
-			otherSide.style.bottom = 0;
-		focusSide.style.backgroundSize = "100% 200%";
-		focusSide.style.height = "50%";
-	}
-	*/
-	
-	//focusSide.style.top = 0;
+
 	focusSide.style.backgroundSize = "200% 100%";
 	focusSide.style[dimention] = "50%";
 	focusSide.style.zIndex = 1;
@@ -293,20 +225,6 @@ function RecedeContent (sideToRecede, dimention) {
 
 //brings elements into and out of view, while dealing with transition lengths
 function DelayTransitions(unload, load, expand, side) {
-	/*
-	if (window.matchMedia("(orientation: portrait)").matches) {
-		unload.style.display = "none";
-		if (expand != -1) {
-			if (expand)
-				ExpandContent(side);
-			else
-				RecedeContent(side);
-		}
-		load.style.display = "block";
-		load.style.opacity = 1;
-		return;
-	}
-	*/
 	setTimeout(function() { //delays removal of button by transition length
 		unload.style.display = "none";
 	}, 300);
