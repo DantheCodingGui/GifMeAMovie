@@ -12,9 +12,15 @@ const QUIZ = 1;
 
 var screenType;
 
-//SetScreenType();
+SetScreenType();
 //ensures that if mobile users change orientation website will
 //respond without a reload
+
+function OrientationChange() {
+	document.getElementById("search-container").style.display = "initial";
+	document.getElementById("quiz-container").style.display = "initial";
+	window.setTimeout(SetScreenType,10);
+}
 
 function SetScreenType() {
 	if (window.matchMedia("screen and (max-device-width: 499px) and (max-aspect-ratio: 121/80)").matches)
@@ -68,6 +74,12 @@ function ExpandSearch() {
 			ExpandContent(SEARCH, "width");
 			break;
 		}
+		case TABLET_PORTRAIT: {
+			break;
+		}
+		case TABLET_LANDSCAPE: {
+			break;
+		}
 	}
 }
 function RecedeSearch() { //recede the full page content back to the home page
@@ -94,6 +106,12 @@ function RecedeSearch() { //recede the full page content back to the home page
 			RecedeContent(SEARCH, "width");
 			document.getElementById("search-container").style.position = "initial";
 			document.getElementById("quiz-container").style.position = "initial";
+			break;
+		}
+		case TABLET_PORTRAIT: {
+			break;
+		}
+		case TABLET_LANDSCAPE: {
 			break;
 		}
 	}
@@ -123,6 +141,12 @@ function ExpandQuiz() {//expand the home page play button to the full quiz conte
 			unload.style.display = "none";
 			load.style.display = "block";
 			ExpandContent(QUIZ, "width");
+			break;
+		}
+		case TABLET_PORTRAIT: {
+			break;
+		}
+		case TABLET_LANDSCAPE: {
 			break;
 		}
 	}
@@ -157,6 +181,12 @@ function RecedeQuiz() {
 			document.getElementById("quiz-container").style.position = "initial";
 			break;
 		}
+		case TABLET_PORTRAIT: {
+			break;
+		}
+		case TABLET_LANDSCAPE: {
+			break;
+		}
 	}	
 	//Reset the quiz
 	current = -1;
@@ -180,6 +210,12 @@ function ExpandGif() { //transitions from search page to results page
 			load.style.display = "block";
 			break;
 		}
+		case TABLET_PORTRAIT: {
+			break;
+		}
+		case TABLET_LANDSCAPE: {
+			break;
+		}
 	}	
 }
 function RecedeGif() { //transitions from results page back to search page
@@ -196,6 +232,12 @@ function RecedeGif() { //transitions from results page back to search page
 		case MOBILE_LANDSCAPE: {
 			unload.style.display = "none";
 			load.style.display = "block";
+			break;
+		}
+		case TABLET_PORTRAIT: {
+			break;
+		}
+		case TABLET_LANDSCAPE: {
 			break;
 		}
 	}	
@@ -286,7 +328,6 @@ function DelayTransitions(unload, load, expand, side) {
 
 /*expands button text into view when the home page is loaded*/
 function init() {
-	document.addEventListener("orientationchange", SetScreenType());
 	if (screenType != DESKTOP)
 		return;
 	left = document.getElementById("search-load");
