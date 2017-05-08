@@ -1,13 +1,22 @@
+// Array to store all of the correct answers
 var answers = ['Shawshank Redemption', 'Batman', 'Simpsons', 'Family Guy', 'Inception']
+
+// Array to store all worng answers
 var wronganswers = "Titanic, Fight Club, The Matrix, Godfather, Pulp Fiction, Forrest Gump, Goodfellas".split(", ")
+
+// Variable to store current question number
 var current = -1
+
+// Variable to store the score
 var score = 0
 
+// Function that increases score for every correct answer
 function RightAnswer() {
 	 score++
 	 nextquestion()
 }
 
+// Function that changes the question to the next question
 function nextquestion(){
 	current++
 	showGif()
@@ -40,6 +49,8 @@ function nextquestion(){
 	}
 }
 
+
+// Function to display the GIF's
 function showGif()
 {
 	q = answers[current]; // search query
