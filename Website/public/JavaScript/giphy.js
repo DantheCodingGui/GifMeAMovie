@@ -1,3 +1,4 @@
+//
 //giph.js handles the giphy api
 //input = 10 word strings stored in array
 //output = 10 gifs that are played on repeat
@@ -43,7 +44,9 @@ function getGIF() {
         if (i == myarray.length) { //condition to restart the loop if the last gif has been shown
             i = 0;
             q = myarray[i];
+            getGIF();
         }
+
 
         console.log(q); //for seeing the query
 
