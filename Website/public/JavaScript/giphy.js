@@ -1,20 +1,19 @@
-//
 //giph.js handles the giphy api
 //input = 10 word strings stored in array
 //output = 10 gifs that are played on repeat
 var socket = io.connect('http://rishi.doubletrouble.co:8000'); 
 var reviewSubmitted = 0;
 var myarray = {};//array that stores words- usually 10
-var q; //q represents the string search query for the giphy API
 var i = 0; // counter
 var mp4Link = []; //array to store the mp4 link of the gif to help with future implementations
-
-
+var q; //q represents the string search query for the giphy API
 
 
 function callGetGIF() {
-    var filmName = document.getElementById("film-name").value;
     // myarray = idf(filmName);//accessing html field (user typed summary)
+    if (!isQuiz){
+        window.alert("search");
+        var filmName = document.getElementById("film-name").value;
 
     socket.emit('queryDB', {title: filmName});
 
@@ -27,7 +26,8 @@ function callGetGIF() {
     q = myarray[0];                                     
     document.getElementById("upvote").display = "block";
     document.getElementById("downvote").display = "block";
-    getGIF();
+    getGIF(q);
+    }
 }
 
 function getGIF() {
