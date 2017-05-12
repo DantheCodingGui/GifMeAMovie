@@ -10,15 +10,39 @@ var current = -1
 // Variable to store the score
 var score = 0
 
+var correctAnswer;
+
 // Function that increases score for every correct answer
 function RightAnswer() {
     score++
-    nextquestion()
+    var id;
+    switch(correctAnswer) {
+        case 1:
+            id = "bt1";
+            break;
+        case 2:
+            id = "bt2";
+            break;
+        case 3:
+            id = "bt3";
+            break;
+        case 4:
+            id = "bt4";
+            break;
+    }
+    document.getElementById(id).style.backgroundColor = "green";
+    window.setTimeout(function()
+        {
+        document.getElementById(id).style.backgroundColor = "white";
+        nextquestion()
+        }, 1000);
+
 }
 
 // Function that changes the question to the next question
 function nextquestion(){
     current++
+    console.log(score);
     // showGif()
     randomFilm(); //using method from quiztest
     var answer = Math.ceil(Math.random()*4)
@@ -34,21 +58,28 @@ function nextquestion(){
     switch(answer){
         case 1:
             button1 = RightAnswer
+            correctAnswer = 1;
+            console.log('answer is ' + correctAnswer);
             document.getElementById("bt1").innerHTML = answers[current]
             break;
         case 2:
             button2 = RightAnswer
+            correctAnswer = 2;
+            console.log('answer is' + correctAnswer);
             document.getElementById("bt2").innerHTML = answers[current]
             break;
         case 3:
             button3 = RightAnswer
+            correctAnswer = 3;
+            console.log('answer' + correctAnswer);
             document.getElementById("bt3").innerHTML = answers[current]
             break;
         case 4:
             button4 = RightAnswer
+            correctAnswer = 4;
+            console.log('answer is ' +  correctAnswer);
             document.getElementById("bt4").innerHTML = answers[current]		
 
-            console.log(RightAnswer);
     }
 }
 
