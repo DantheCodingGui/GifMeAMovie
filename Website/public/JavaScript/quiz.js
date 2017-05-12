@@ -1,8 +1,6 @@
 // Array to store all of the correct answers
-var answers = ['Shawshank Redemption', 'Batman', 'Simpsons', 'Family Guy', 'Inception']
-
 // Array to store all worng answers
-var wronganswers = "Titanic, Fight Club, The Matrix, Godfather, Pulp Fiction, Forrest Gump, Goodfellas".split(", ")
+var wronganswers = "Titanic, Fight Club, The Matrix, Pulp Fiction, Goodfellas, Shawshank Redemption, Inception, The Godfather, Star Wars".split(", ")
 
 // Variable to store current question number
 var current = -1
@@ -44,43 +42,63 @@ function nextquestion(){
     current++
     console.log(score);
     // showGif()
-    randomFilm(); //using method from quiztest
+    var quizFilmName = randomFilm(); //using method from quiztest
+
     var answer = Math.ceil(Math.random()*4)
-    document.getElementById("score").innerHTML = "Question "+(current+1)+" of "+"5"
+    document.getElementById("score").innerHTML = "Question "+(current+1)
+    wronganswers = shuffle(wronganswers);
+
+
     button1 = nextquestion
-    document.getElementById("bt1").innerHTML = wronganswers[Math.floor(Math.random()*wronganswers.length)]
+    document.getElementById("bt1").innerHTML = wronganswers[0]
     button2 = nextquestion
-    document.getElementById("bt2").innerHTML = wronganswers[Math.floor(Math.random()*wronganswers.length)]
+    document.getElementById("bt2").innerHTML = wronganswers[1]
     button3 = nextquestion
-    document.getElementById("bt3").innerHTML = wronganswers[Math.floor(Math.random()*wronganswers.length)]
+    document.getElementById("bt3").innerHTML = wronganswers[2]
     button4 = nextquestion
-    document.getElementById("bt4").innerHTML = wronganswers[Math.floor(Math.random()*wronganswers.length)]
+    document.getElementById("bt4").innerHTML = wronganswers[3]
+
     switch(answer){
         case 1:
             button1 = RightAnswer
             correctAnswer = 1;
-            console.log('answer is ' + correctAnswer);
-            document.getElementById("bt1").innerHTML = answers[current]
+            document.getElementById("bt1").innerHTML = quizFilmName
             break;
         case 2:
             button2 = RightAnswer
             correctAnswer = 2;
-            console.log('answer is' + correctAnswer);
-            document.getElementById("bt2").innerHTML = answers[current]
+            document.getElementById("bt2").innerHTML = quizFilmName
             break;
         case 3:
             button3 = RightAnswer
             correctAnswer = 3;
-            console.log('answer' + correctAnswer);
-            document.getElementById("bt3").innerHTML = answers[current]
+            document.getElementById("bt3").innerHTML = quizFilmName
             break;
         case 4:
             button4 = RightAnswer
             correctAnswer = 4;
-            console.log('answer is ' +  correctAnswer);
-            document.getElementById("bt4").innerHTML = answers[current]		
+            document.getElementById("bt4").innerHTML = quizFilmName
 
     }
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
 
 

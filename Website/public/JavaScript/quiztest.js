@@ -22,6 +22,7 @@ function randomFilm() {
             quizGIF();
         }
     })
+    return filmName;
 }
 
 function quizGIF() {
@@ -49,10 +50,10 @@ function quizGIF() {
         console.log(q); //for seeing the query
 
         if (request.status >= 200 && request.status < 400) { //in other words, if the request was a success
-            data = JSON.parse(request.responseText).data.image_mp4_url;
+            data = JSON.parse(request.responseText).data.image_original_url;
             // document.getElementById("giphyme").innerHTML = '<center><img onclick="getGIF()" src = "'+data+'"  title="GIF via Giphy"></center>';
             // if (mp4Link.length = myarray.length) //make so that stores links so doesnt need to show a different summary
-            document.getElementById("quizgif").innerHTML = '<center><video src="'+data+'" autoplay onended="quizGIF()"></video>';//show mp4
+            document.getElementById("quizgif").innerHTML = '<center><image height="400px" width="auto" src="'+data+'" autoplay onended="quizGIF()"></image>';//show mp4
         } else {
 
             console.log('reached giphy, but API returned an error'); //error handling
@@ -65,4 +66,4 @@ function quizGIF() {
 
     request.send(); //sends request at thet end
 }
-
+setInterval(quizGIF,4000);

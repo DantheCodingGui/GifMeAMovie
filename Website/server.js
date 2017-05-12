@@ -1,5 +1,6 @@
+//including npm modules
 var express = require('express');  
-var mongodb = require('mongodb');
+var mongodb = require('mongodb'); //database module
 var MongoClient = require('mongodb').MongoClient;
 var app = express();  
 var server = require('http').createServer(app);  
@@ -26,13 +27,13 @@ io.on('connection', function(socket){
             var collection = db.collection('gifs'); //define collection of documents
 
             var query = {'FilmName': filmTitle.title } //define query
-            collection.find(query).forEach( function(myDoc) { //send words to giphy.js
-                console.log( "Words: " + myDoc.Words ); 
+            collection.find(query).forEach( function(myDoc) { 
+                console.log( "Words: " + myDoc.Words );  //print words array to server
             
-                io.emit('array', {Words: myDoc.Words});
+                io.emit('array', {Words: myDoc.Words}); //send words to client
             } )
 
-            db.close();
+            db.close(); //close db connection
         });
     });
 });
