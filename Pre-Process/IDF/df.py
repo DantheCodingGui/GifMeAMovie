@@ -1,3 +1,4 @@
+import unittest
 import re
 import math
 from collections import Counter
@@ -56,3 +57,31 @@ if __name__ == "__main__":
     f = open("dfCalc.txt","w")
     f.write(str(currentList))
     f.close()
+
+class test_textFormatter(unittest.TestCase):
+
+    def test_textFormatter(self):
+        self.assertEqual(textFormatter("This is the most basic input. It should work!?!?"), "this is the most basic input it should work")
+
+class test_listFormat(unittest.TestCase):
+
+    def test_listFormat(self):
+        self.assertCountEqual(listFormat("hello this is a test"), ["hello","this","is","a","test"])
+
+class test_listExtend(unittest.TestCase):
+
+    def test_listExtend(self):
+        self.assertEqual(listExtend(["hello","my"],["name","is","lewis"]), ["hello","my","name","is","lewis"])
+
+class test_documentFreq(unittest.TestCase):
+
+    def test_documentFreq(self):
+        test = ["hello","my","name","is","lewis","hello","my","is","my"]
+        self.assertCountEqual(documentFreq(test), [("my",3),("is",2),("hello",2),("name",1),("lewis",1)])
+
+class test_documentFreqCalc(unittest.TestCase):
+
+    def test_documentFreqCalc(self):
+        test = [("my",3),("is",2),("hello",2),("name",1),("lewis",1)]
+        testResult = [("my",0),("is",0.17609125905568124),("hello",0.17609125905568124),("name",0.47712125471966244),("lewis",0.47712125471966244)]
+        self.assertCountEqual(documentFreqCalc(test,3), testResult)

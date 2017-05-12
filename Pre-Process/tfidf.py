@@ -4,8 +4,9 @@ import string
 from operator import itemgetter
 import os
 import json
+import unittest
 
-# Calculates the term frequency for each word
+# Calculates the term frequency for each word in a single film script
 def termFreq(textList,totalWords):
     topWords = Counter(textList).most_common()
     wordTermFreq = [(pair[0], pair[1]/totalWords) for pair in topWords]
@@ -13,30 +14,32 @@ def termFreq(textList,totalWords):
 
 # Makes the text lower case and remove text tags such as \n
 def textToListFormat(textInput):
-    textInput = textInput.lower()
-    textList = textInput.split()
-    textList = [ re.sub(r'[^\w\s]','',x.replace('\\n',' ').replace('\\t',' ')) for x in textList]
-    textList = list(filter(None, textList))
+    textInput = textInput.lower()   #make all the code lower case
+    textList = textInput.split()    # turn text into list
+    textList = [ re.sub(r'[^\w\s]','',x.replace('\\n','').replace('\\t','')) for x in textList]   #remove punctuation and get rid of //n and //t
+    textList = list(filter(None, textList)) #get rid of empty elements
     return textList
 
+#Performs the TFIDF oen script at a time by going through all the words in the filn script
 def tfidf(termFreq, invDocFreq):
     i = 0;
     j = 0;
     tfidf = []
 
-    while ((i < len(termFreq)) and (j < len(invDocFreq))):
+    while ((i < len(termFreq)) and (j < len(invDocFreq))):  #Go until it reaches the end of one of the lists
 
-        if(termFreq[i][0] == invDocFreq[j][0]):
-            tfidf.extend([(termFreq[i][0],"{0:.25f}".format(termFreq[i][1]*invDocFreq[j][1]))])
+        if(termFreq[i][0] == invDocFreq[j][0]):     #When both the words are the same in the list
+            tfidf.extend([(termFreq[i][0],"{0:.25f}".format(termFreq[i][1]*invDocFreq[j][1]))])     #TFIDF calculation
             i += 1
             j += 1
-        elif(termFreq[i][0] > invDocFreq[j][0]):
+        elif(termFreq[i][0] > invDocFreq[j][0]):    #When termFreq word is further through the alphabet then invDocFreq
             j += 1
-        elif(termFreq[i][0] < invDocFreq[j][0]):
+        elif(termFreq[i][0] < invDocFreq[j][0]):    #When invDocFreq word is further through the alphabet then termFreq
             i += 1
 
     return tfidf
 
+#Format the Inverse Document Freq into a suitable format
 def formatIDF():
     f = open("IDF/dfCalc.txt")
     idftext = f.read()
@@ -46,6 +49,7 @@ def formatIDF():
     idfList = [(idfList[x], float(idfList[x+1])) for x in range (len(idfList)) if x % 2 == 0]
     return idfList
 
+#Open files
 def openFilmScripts(fileName):
     f = open("FilmScript/" + fileName)
     fileText = f.read()
@@ -53,6 +57,7 @@ def openFilmScripts(fileName):
 
     return fileText
 
+#gets the recommended words for the film script
 def GetTopWords(tdf):
     words = []
     for i in range (0,10):
@@ -63,7 +68,7 @@ def GetTopWords(tdf):
 if __name__ == "__main__":
     f = open("FilmAndWords.json","w")
     f.write('[')
-    #filename = "Alien-1979.txt"
+
     for filename in os.listdir("FilmScript"):
         fileText = openFilmScripts(filename)
         fileList = textToListFormat(fileText)
@@ -85,3 +90,16 @@ if __name__ == "__main__":
 
     f.write(']')
     f.close()
+
+
+class test_termFreq(unittest.TestCase):
+
+    def test_termFreq(self):
+        test = ["hello","my","name","is","lewis","hello","my","is","my","cat"]
+        self.assertCountEqual(termFreq(test,10), [('my',0.3),('is',0.2),('hello',0.2),('name',0.1),('lewis',0.1),('cat',0.1)])
+
+class test_textToListFormat(unittest.TestCase):
+
+    def test_textToListFormat(self):
+        test = "HEllo my name is Hello my name is lewis hammond\\n"
+        self.assertCountEqual(textToListFormat(test), ["hello","my","name","is","hello","my","name","is","lewis","hammond"])
