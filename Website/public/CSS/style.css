@@ -232,30 +232,14 @@ button.backbutton:hover {
 .divTableRow {
 	display: table-row;
 }
-/* UNUSED AT CURRENT TIME
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
-}
-*/
+
 /*quiz answer table cell*/
 .divTableCell, .divTableHead { /*divTableHead UNUSED AT CURRENT TIME*/
 	display: table-cell;
 	padding: 15px;
 	vertical-align: top; /*fixes bug with first answers set column having extra padding*/
 }
-/* UNUSED AT CURRENT TIME
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
-	font-weight: bold;
-}
-.divTableFoot {
-	background-color: #EEE;
-	display: table-footer-group;
-	font-weight: bold;
-}
-*/
+
 /*inner quiz answers table container*/
 .divTableBody {
 	display: table-row-group;
@@ -438,7 +422,7 @@ button.backbutton:hover {
 		padding: 0px;
 	}
 	
-	.divTableCell, .divTableHead { /*divTableHead UNUSED AT CURRENT TIME*/
+	.divTableCell, .divTableHead { 
 		position: relative;
 		float: left;
 		width: 90%;
@@ -456,6 +440,10 @@ button.backbutton:hover {
 	
 	.gif {
 		z-index: -1;
+		display: inline-block;
+		text-align: center;
+		margin: 0 auto;
+		top: 25%;
 	}
 	
 	/*search load button*/
@@ -627,6 +615,10 @@ button.backbutton:hover {
 	
 	.gif {
 		z-index: -1;
+		display: inline-block;
+		text-align: center;
+		margin: 0 auto;
+		top: 25%;
 	}
 	
 	/*search load button*/
