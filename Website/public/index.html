@@ -7,7 +7,6 @@
         <meta charset="UTF-8">
         <meta name="keywords" content="Gif, Summary, Film, Movie, Quiz">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src ="JavaScript/tfidf.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script src ="JavaScript/transition.js"></script>
         <script src ="JavaScript/quiz.js"></script>        
@@ -32,7 +31,7 @@
                 </div>
                 <div id="search-gif" class="fullpagecontent">
                     <button id="search-fromresults" class="backbutton" onclick="RecedeGif()">Back</button>
-                    <table id="gif-weight-buttons">
+                    <table id="gif-weight-buttons" style="visibility: hidden";>
                         <tr>
                             <td> <button id="upvote" class="stdbutton weightbutton" onclick="upVote()">Good Gifs</button> </td>
                             <td> <button id="downvote" class="stdbutton weightbutton" onclick="downVote()">Bad Gifs</button> </td>
@@ -44,7 +43,7 @@
                 </div>
             </div>
             <div id="quiz-container" class="loadedcontainer">
-                <button id="quiz-load" class="loadbutton" onclick="ExpandQuiz(true)">Play</button>
+                <button id="quiz-load" class="loadbutton" onclick="ExpandQuiz(true);">Play</button>
                 <div id="quiz-full" class="fullpagecontent">
                     <h1 id="quiz-title">Quiz</h1>
                     <h2 id="score"></h2>

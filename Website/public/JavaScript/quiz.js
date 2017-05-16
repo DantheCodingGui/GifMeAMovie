@@ -40,7 +40,6 @@ function RightAnswer() {
 // Function that changes the question to the next question
 function nextquestion(){
     current++
-    console.log(score);
     // showGif()
     var quizFilmName = randomFilm(); //using method from quiztest
 
@@ -78,6 +77,7 @@ function nextquestion(){
             button4 = RightAnswer
             correctAnswer = 4;
             document.getElementById("bt4").innerHTML = quizFilmName
+            break;
 
     }
 }

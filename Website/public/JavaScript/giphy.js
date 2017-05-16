@@ -47,7 +47,7 @@ function getGIF() {
             }
 
 
-            console.log(q); //for seeing the query
+            // console.log(q); //for seeing the query
 
             if (request.status >= 200 && request.status < 400) { //in other words, if the request was a success
                 data = JSON.parse(request.responseText).data.image_original_url;

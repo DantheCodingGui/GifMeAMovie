@@ -1,28 +1,28 @@
 /*allows full page content*/
 html, body { 
-	height: 100%;
-	margin: 0;
-	overflow: hidden;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
 } 
 
 /*titles on search and quiz pages*/
 h1 {
-	color: white;
-	font-size: 100px;
-	font-family: "Montserrat", "sans-serif";
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+    font-size: 100px;
+    font-family: "Montserrat", "sans-serif";
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 h2 {
-	color: white;
-	font-size: 50px;
-	font-family: "Montserrat", "sans-serif";
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+    font-size: 50px;
+    font-family: "Montserrat", "sans-serif";
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 /*centrally aligns all tables*/
 table {
-	margin: auto;
+    margin: auto;
 }
 
 /*prevents default search textbox behaviour of turning yellow upon an autocomplete*/
@@ -32,668 +32,668 @@ input:-webkit-autofill {
 
 /*style placeholder text for search box*/
 ::-webkit-input-placeholder { /*Chrome/Opera/Safari*/
-  color: DarkGrey;
-  font-family: "Montserrat", "sans-serif";
+    color: DarkGrey;
+    font-family: "Montserrat", "sans-serif";
 }
 ::-moz-placeholder { /*Firefox 19+*/
-  color: DarkGrey;
-  font-family: "Montserrat", "sans-serif";
+    color: DarkGrey;
+    font-family: "Montserrat", "sans-serif";
 }
 :-ms-input-placeholder { /*IE 10+*/
-  color: DarkGrey;
-  font-family: "Montserrat", "sans-serif";
+    color: DarkGrey;
+    font-family: "Montserrat", "sans-serif";
 }
 :-moz-placeholder { /*Firefox 18-*/
-  color: DarkGrey;
-  font-family: "Montserrat", "sans-serif";
+    color: DarkGrey;
+    font-family: "Montserrat", "sans-serif";
 }
 
 /*left and right container divs on main page*/
 div.loadedcontainer {
-	height: 100%; 
-	width: 50%;
-	background-size: 200% 100%;
-	z-index: 1;
-	
-	-webkit-transition:	all .4s ease-in-out;
-	-moz-transition:	all .4s ease-in-out;
-	-o-transition: 		all .4s ease-in-out;
-	-ms-transition:		all .4s ease-in-out;
-	transition: 		all .4s ease-in-out;
-	
-	-webkit-transition-property:	width, background-size;
-	-moz-transition-property: 		width, background-size;
-	-o-transition-property:			width, background-size;
-	-ms-transition-property:		width, background-size;
-	transition-property: 			width, background-size;
+    height: 100%; 
+    width: 50%;
+    background-size: 200% 100%;
+    z-index: 1;
+
+    -webkit-transition:	all .4s ease-in-out;
+    -moz-transition:	all .4s ease-in-out;
+    -o-transition: 		all .4s ease-in-out;
+    -ms-transition:		all .4s ease-in-out;
+    transition: 		all .4s ease-in-out;
+
+    -webkit-transition-property:	width, background-size;
+    -moz-transition-property: 		width, background-size;
+    -o-transition-property:			width, background-size;
+    -ms-transition-property:		width, background-size;
+    transition-property: 			width, background-size;
 }
 
 /*buttons inside in front of container to transition to full pages*/
 button.loadbutton { 
-	height: 100%;
-	width: 100%;
-	border: none;
-	outline: none;
-	background-color: transparent;
-	background-size: 200% 100%; 
-	
-	font-family: 'Montserrat', sans-serif;
-	font-weight: bold;
-	font-size: 0px;
-	
-	color: #777777;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	
-	opacity: 1;
-	display: inline;
-	
-	-webkit-transition:	all .4s ease-in-out;
-	-moz-transition:	all .4s ease-in-out;
-	-o-transition: 		all .4s ease-in-out;
-	-ms-transition:		all .4s ease-in-out;
-	transition: 		all .4s ease-in-out;
-	
-	-webkit-transition-property:		
-		font-size, 
-		color, 
-		background-image,
-		opacity;
-	-moz-transition-property:
-		font-size, 
-		color, 
-		background-image,
-		opacity;
-	-o-transition-property:	
-		font-size, 
-		color, 
-		background-image,
-		opacity;
-	-ms-transition-property:
-		font-size, 
-		color, 
-		background-image,
-		opacity;
-	transition-property: 
-		font-size, 
-		color, 
-		background-image,
-		opacity;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    background-size: 200% 100%; 
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 0px;
+
+    color: #777777;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+    opacity: 1;
+    display: inline;
+
+    -webkit-transition:	all .4s ease-in-out;
+    -moz-transition:	all .4s ease-in-out;
+    -o-transition: 		all .4s ease-in-out;
+    -ms-transition:		all .4s ease-in-out;
+    transition: 		all .4s ease-in-out;
+
+    -webkit-transition-property:		
+    font-size, 
+    color, 
+    background-image,
+    opacity;
+    -moz-transition-property:
+    font-size, 
+    color, 
+    background-image,
+    opacity;
+    -o-transition-property:	
+    font-size, 
+    color, 
+    background-image,
+    opacity;
+    -ms-transition-property:
+    font-size, 
+    color, 
+    background-image,
+    opacity;
+    transition-property: 
+    font-size, 
+    color, 
+    background-image,
+    opacity;
 }
 button.loadbutton:hover {
-	font-size: 90px !important; 
-	color: #ffffff;
-	cursor: pointer;
+    font-size: 90px !important; 
+    color: #ffffff;
+    cursor: pointer;
 }
 
 /*generic full page content*/
 div.fullpagecontent {
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	
-	display: none;
-	opacity: 0;
-	
-	-webkit-transition:	all .3s ease-in-out;
-	-moz-transition:	all .3s ease-in-out;
-	-o-transition: 		all .3s ease-in-out;
-	-ms-transition:		all .3s ease-in-out;
-	transition: 		all .3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    display: none;
+    opacity: 0;
+
+    -webkit-transition:	all .3s ease-in-out;
+    -moz-transition:	all .3s ease-in-out;
+    -o-transition: 		all .3s ease-in-out;
+    -ms-transition:		all .3s ease-in-out;
+    transition: 		all .3s ease-in-out;
 }
 
 /*takes user from full page to index page*/
 button.backbutton {
-	width: 10%; 
-	min-width: 120px; 
-	height: 10%; 
-	min-height: 90px; 
-	border: none;
-	outline: none;
-	
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	
-	position: absolute;
-	top: 0;
-	
-	background-color: transparent;
-	
-	font-family: 'Montserrat', sans-serif;
-	font-weight: bold;
-	font-size: 40px; 
-	color: #ffffff;
-	
-	-webkit-transition:	background-color 0.3s ease-in-out;
-	-moz-transition:	background-color 0.3s ease-in-out;
-	-o-transition: 		background-color 0.3s ease-in-out;
-	-ms-transition:		background-color 0.3s ease-in-out;
-	transition: 		background-color 0.3s ease-in-out;
+    width: 10%; 
+    min-width: 120px; 
+    height: 10%; 
+    min-height: 90px; 
+    border: none;
+    outline: none;
+
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+    position: absolute;
+    top: 0;
+
+    background-color: transparent;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 40px; 
+    color: #ffffff;
+
+    -webkit-transition:	background-color 0.3s ease-in-out;
+    -moz-transition:	background-color 0.3s ease-in-out;
+    -o-transition: 		background-color 0.3s ease-in-out;
+    -ms-transition:		background-color 0.3s ease-in-out;
+    transition: 		background-color 0.3s ease-in-out;
 }
 button.backbutton:hover {
-	background: rgba(255, 255, 255, .3);
-	cursor: pointer;
+    background: rgba(255, 255, 255, .3);
+    cursor: pointer;
 }
 
 /*gif display formatting*/
 .gif {
-	margin-top: 100px; 
-	z-index = -1;
+    margin-top: 100px; 
+    z-index = -1;
 }
 
 /*standard button design*/
 .stdbutton {
-	font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     display: inline-block;
     width: 200px; 
     height: 60px; 
     background: white;
-	border: 2px solid #cccccc;
+    border: 2px solid #cccccc;
     padding: 15px; 
     text-align: center;
     border-radius: 5px;
-	font-size:20px; 
+    font-size:20px; 
     color: #777777;
     font-weight: bold;
 } 
 .stdbutton:hover {
-	background: #e6e6e6;
-	cursor: pointer;
+    background: #e6e6e6;
+    cursor: pointer;
 }
 
 /*shared upvote and downvote button styles*/
-.weightbutton {
-	margin: 20px; 
-	z-index = 10;
-}
+/* .weightbutton { */
+/*     margin: 20px; */ 
+/*     z-index = 10; */
+/* } */
 
 /*dimentions for quiz answers(larger to occupy more screen space)*/
 .quizanswer {
-	width: 250px; 
-	height: 100px;
-	z-index = 10;
+    width: 250px; 
+    height: 100px;
+    z-index = 10;
 }
 
 /*container for quiz gif*/
 .divTableGIF{
-	display: table;
-	width: 100%;
-	position: absolute;
-	top: 20%;
-	z-index: -1;
+    display: table;
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    z-index: -1;
 }
 /*table of quiz answers*/
 .divTable{
-	display: table;
-	width: 100%;
-	margin-top: 0px;
-	position: absolute;
-	bottom: 10%;
+    display: table;
+    width: 100%;
+    margin-top: 0px;
+    position: absolute;
+    bottom: 10%;
 }
 /*quiz answers row*/
 .divTableRow {
-	display: table-row;
+    display: table-row;
 }
 
 /*quiz answer table cell*/
 .divTableCell, .divTableHead { /*divTableHead UNUSED AT CURRENT TIME*/
-	display: table-cell;
-	padding: 15px;
-	vertical-align: top; /*fixes bug with first answers set column having extra padding*/
+    display: table-cell;
+    padding: 15px;
+    vertical-align: top; /*fixes bug with first answers set column having extra padding*/
 }
 
 /*inner quiz answers table container*/
 .divTableBody {
-	display: table-row-group;
+    display: table-row-group;
 }
 
 /*whole page container*/
 #container-full { 
-	width: 100%;
-	min-width: 950px;
-	height: 100%;
-	min-height: 800px;
-	position: fixed;
+    width: 100%;
+    min-width: 950px;
+    height: 100%;
+    min-height: 800px;
+    position: fixed;
 }
 
 /*search(left side) container*/
 #search-container { 
-	float: left; 
-	background-image: url("../images/search-landscape.jpg"); 
-	background-position: left top; 
+    float: left; 
+    background-image: url("../images/search-landscape.jpg"); 
+    background-position: left top; 
 }
 
 /*quiz/play(right side) container*/
 #quiz-container { 
-	float: right; 
-	right: 0;
-	background-image: url("../images/play-landscape.jpg"); 
-	background-position: right top; 
+    float: right; 
+    right: 0;
+    background-image: url("../images/play-landscape.jpg"); 
+    background-position: right top; 
 }
 
 /*search load button*/
 #search-load { 
-	background-position: left top; 
-	background-image: url("../images/default-search-landscape.jpg"); 
+    background-position: left top; 
+    background-image: url("../images/default-search-landscape.jpg"); 
 }
 #search-load:hover { 
-	background-image: url("../images/search-landscape.jpg"); 
+    background-image: url("../images/search-landscape.jpg"); 
 }
 
 /*quiz load button*/
 #quiz-load {
-	background-position: right top;
-	background-image: url("../images/default-play-landscape.jpg"); 
+    background-position: right top;
+    background-image: url("../images/default-play-landscape.jpg"); 
 }
 #quiz-load:hover { 
-	background-image: url("../images/play-landscape.jpg"); 
+    background-image: url("../images/play-landscape.jpg"); 
 }
 
 /*return from search to home page*/
 #search-tohome {
-	left: 0;
+    left: 0;
 }
 
 /*return from search results to search*/
 #search-fromresults {
-	left: 0;
+    left: 0;
 }
 
 /*Quiz title positioned to the corner*/
 #quiz-title {
-	position: absolute;
-	top: -20px; 
-	left: 40px; 
+    position: absolute;
+    top: -20px; 
+    left: 40px; 
 }
 
 /*return from quiz to home page*/
 #quiz-tohome {
-	right: 0;
+    right: 0;
 }
 
 /*container holding the film name input box and submit button*/
 #container-query {
-	margin-top: 5%; 
-	display: inline-block;
+    margin-top: 5%; 
+    display: inline-block;
 }
 /*text area for inputting */
 #film-name {
-	width: 100%;
-  	height: 40px; 
-	padding: 0.5em;
-	margin: 1px;
+    width: 100%;
+    height: 40px; 
+    padding: 0.5em;
+    margin: 1px;
 
-  	border: 0.1em solid #cccccc;
-	border-radius: 0.2em;
-	
-  	font-size: 34px; 
-	font-family: "Montserrat", "sans-serif";
-	text-align: center;
-	
-	overflow: hidden;
-	outline: none;
-	resize: none;
+    border: 0.1em solid #cccccc;
+    border-radius: 0.2em;
+
+    font-size: 34px; 
+    font-family: "Montserrat", "sans-serif";
+    text-align: center;
+
+    overflow: hidden;
+    outline: none;
+    resize: none;
 }
 
 /*submit film summary for analysis*/
 #submit-film {
-	margin: 30px; 
+    margin: 30px; 
 }
 
 /*table of the upvote and downvote buttons*/
-#gif-weight-buttons {
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
-	top: 70%; 
-}
+/* #gif-weight-buttons { */
+/*     margin-left: auto; */
+/*     margin-right: auto; */
+/*     position: relative; */
+/*     top: 70%; */ 
+/* } */
 
 /*---------------------------------------Responsiveness Code---------------------------------------*/
 
 /*applies to portrait smartphones*/
 @media only screen and (max-width: 499px) and (max-aspect-ratio: 121/80) {
-	h1 {
-		font-size: 75px;
-		padding-top: 20px;
-	}
-	
-	h2 {
-		font-size: 30px;
-	}
-	
-	td {
-		float: left;
-		width: 90%;
-		left: 4.5%;
-		position: relative;
-		margin: 5px;
-	}
-	
-	tr {
-		width: 100%;
-	}
-	
-	center {
-		z-index: -1;
-	}
-	
-	div.loadedcontainer {
-		height: 50%; 
-		width: 100%;
-		background-size: 100% 200%;
-		transition: none;
-	}
-	
-	button.loadbutton { 
-		color: white;
-		background-size: 100% 200%; 
-		transition: none;
-		font-size: 75px;
-	}
-	
-	/*generic full page content*/
-	div.fullpagecontent {
-		width: 100%;
-		height: 100%;
-		text-align: center;
-		
-		display: none;
-		
-		opacity: 1;
-		transition: none;
-	}
-		
-	.divTable {
-		bottom: 0;
-		z-index: 5;
-	}
-	
-	.divTableGIF {
-		top: 25%;
-	}
-	
-	.divTableRow {
-		display: inline-table;
-		width: 100%;
-	}
-	
-	.quizanswer {
-		width: 100%;
-		height: 7vh;
-		font-size: 15px;
-		padding: 0px;
-	}
-	
-	.divTableCell, .divTableHead { 
-		position: relative;
-		float: left;
-		width: 90%;
-		left: 4.5%;
-		display: table-cell;
-		padding: 2px;
-		vertical-align: top; /*fixes bug with first answers set column having extra padding*/
-	}
-	
-	.weightbutton {
-		width: 100%;
-		margin: 0;
-		z-index: 5;
-	}
-	
-	.gif {
-		z-index: -1;
-		display: inline-block;
-		text-align: center;
-		margin: 0 auto;
-		top: 20%;
-	}
-	
-	/*search load button*/
-	#search-load { 
-		background-position: left top; 
-		background-image: url("../images/search-portrait.jpg"); 
-	}
-	#search-load:hover {
-		background-image: url("../images/search-portrait.jpg"); 
-	}
+    h1 {
+        font-size: 75px;
+        padding-top: 20px;
+    }
 
-	/*quiz load button*/
-	#quiz-load {
-		background-position: left bottom;
-		background-image: url("../images/play-portrait.jpg"); 
-	}
-	#quiz-load:hover {
-		background-image: url("../images/play-portrait.jpg"); 
-	}
-	
-	/*search(top) container*/
-	#search-container { 
-		background-image: url("../images/search-portrait.jpg"); 
-		background-position: left top; 
-	}
+    h2 {
+        font-size: 30px;
+    }
 
-	/*quiz/play(bottom) container*/
-	#quiz-container {
-		top: 50%;
-		left: 0;
-		bottom: 100%;
-		background-image: url("../images/play-portrait.jpg"); 
-		background-position: left bottom;
-	}
-	
-	#container-full { 
-		width: 100%;
-		height: 100%;
-		position: fixed;
-		min-height: 0;
-		min-width: 0;
-	}
-	
-	#film-name {
-		width: 75%;
-		height: 30px; 
-		padding: 0.5em;
-		margin: 1px;
+    td {
+        float: left;
+        width: 90%;
+        left: 4.5%;
+        position: relative;
+        margin: 5px;
+    }
 
-		border: 0.1em solid #cccccc;
-		border-radius: 0.2em;
-		
-		font-size: 34px; 
-		font-family: "Montserrat", "sans-serif";
-		text-align: center;
-		
-		overflow: hidden;
-		outline: none;
-		resize: none;
-	}
-	
-	#quiz-title {
-		position: absolute;
-		top: -70px; 
-		left: 20px; 
-	}
-	
-	#score {
-		margin-top: 90px;
-	}
-	
-	#bt1, #bt3 {
-		margin-bottom: 2px;
-	}
-	#bt2, #bt4 {
-		margin-top: 2px;
-	}
-	
-	#gif-weight-buttons {
-		width: 100%; 
-	}
+    tr {
+        width: 100%;
+    }
+
+    center {
+        z-index: -1;
+    }
+
+    div.loadedcontainer {
+        height: 50%; 
+        width: 100%;
+        background-size: 100% 200%;
+        transition: none;
+    }
+
+    button.loadbutton { 
+        color: white;
+        background-size: 100% 200%; 
+        transition: none;
+        font-size: 75px;
+    }
+
+    /*generic full page content*/
+    div.fullpagecontent {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+
+        display: none;
+
+        opacity: 1;
+        transition: none;
+    }
+
+    .divTable {
+        bottom: 0;
+        z-index: 5;
+    }
+
+    .divTableGIF {
+        top: 25%;
+    }
+
+    .divTableRow {
+        display: inline-table;
+        width: 100%;
+    }
+
+    .quizanswer {
+        width: 100%;
+        height: 7vh;
+        font-size: 15px;
+        padding: 0px;
+    }
+
+    .divTableCell, .divTableHead { 
+        position: relative;
+        float: left;
+        width: 90%;
+        left: 4.5%;
+        display: table-cell;
+        padding: 2px;
+        vertical-align: top; /*fixes bug with first answers set column having extra padding*/
+    }
+
+    /* .weightbutton { */
+    /*     width: 100%; */
+    /*     margin: 0; */
+    /*     z-index: 5; */
+    /* } */
+
+    .gif {
+        z-index: -1;
+        display: inline-block;
+        text-align: center;
+        margin: 0 auto;
+        top: 20%;
+    }
+
+    /*search load button*/
+    #search-load { 
+        background-position: left top; 
+        background-image: url("../images/search-portrait.jpg"); 
+    }
+    #search-load:hover {
+        background-image: url("../images/search-portrait.jpg"); 
+    }
+
+    /*quiz load button*/
+    #quiz-load {
+        background-position: left bottom;
+        background-image: url("../images/play-portrait.jpg"); 
+    }
+    #quiz-load:hover {
+        background-image: url("../images/play-portrait.jpg"); 
+    }
+
+    /*search(top) container*/
+    #search-container { 
+        background-image: url("../images/search-portrait.jpg"); 
+        background-position: left top; 
+    }
+
+    /*quiz/play(bottom) container*/
+    #quiz-container {
+        top: 50%;
+        left: 0;
+        bottom: 100%;
+        background-image: url("../images/play-portrait.jpg"); 
+        background-position: left bottom;
+    }
+
+    #container-full { 
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        min-height: 0;
+        min-width: 0;
+    }
+
+    #film-name {
+        width: 75%;
+        height: 30px; 
+        padding: 0.5em;
+        margin: 1px;
+
+        border: 0.1em solid #cccccc;
+        border-radius: 0.2em;
+
+        font-size: 34px; 
+        font-family: "Montserrat", "sans-serif";
+        text-align: center;
+
+        overflow: hidden;
+        outline: none;
+        resize: none;
+    }
+
+    #quiz-title {
+        position: absolute;
+        top: -70px; 
+        left: 20px; 
+    }
+
+    #score {
+        margin-top: 90px;
+    }
+
+    #bt1, #bt3 {
+        margin-bottom: 2px;
+    }
+    #bt2, #bt4 {
+        margin-top: 2px;
+    }
+
+    /* #gif-weight-buttons { */
+    /*     width: 100%; */ 
+    /* } */
 }
 
 /*applies to landscape smartphones*/
 @media only screen and (min-width: 500px) and (max-width: 749px) and (min-aspect-ratio: 121/80) {
-	
-	h1 {
-		font-size: 75px;
-		margin-top: 10px;
-	}
-	
-	h2 {
-		font-size: 7vh;
-	}
-	
-	center {
-		text-align: left;
-		z-index: -1;
-		width: 60%;
-		margin: 0;
-	}
-	
-	div.loadedcontainer {
-		height: 100%; 
-		width: 50%;
-		background-size: 200% 100%;
-		transition: none;
-	}
-	
-	button.loadbutton { 
-		color: white;
-		background-size: 200% 100%; 
-		transition: none;
-		font-size: 75px;
-	}
-	
-	/*generic full page content*/
-	div.fullpagecontent {
-		width: 100%;
-		height: 100%;
-		text-align: center;
-		
-		display: none;
-		
-		opacity: 1;
-		transition: none;
-	}
-	
-	.divTableGIF {
-		top: 25%;
-		left: 5%;
-	}
-	
-	.divTable {
-		z-index: 5;
-		position: relative;
-		left: 70%;
-		top: 5%;
-		width: 30%;
-	}
-	
-	.divTableRow {
-		display: inline-table;
-		width: 100%;
-	}
-	
-	.quizanswer {
-		width: 100%;
-		height: 15vh;
-		font-size: 15px;
-		padding: 0px;
-	}
-	
-	.divTableCell, .divTableHead { /*divTableHead UNUSED AT CURRENT TIME*/
-		position: relative;
-		float: left;
-		width: 90%;
-		left: 4.5%;
-		display: table-cell;
-		padding: 2px;
-		vertical-align: top; /*fixes bug with first answers set column having extra padding*/
-	}
-	
-	.weightbutton {
-		width: 100%;
-		margin: 0;
-		z-index: 5;
-	}
-	
-	.gif {
-		z-index: -1;
-		display: inline-block;
-		text-align: center;
-		margin: 0 auto;
-		top: 27%;
-	}
-	
-	/*search load button*/
-	#search-load { 
-		background-position: left top; 
-		background-image: url("../images/search-landscape.jpg"); 
-	}
-	#search-load:hover {
-		background-image: url("../images/search-landscape.jpg"); 
-	}
 
-	/*quiz load button*/
-	#quiz-load {
-		background-position: right top;
-		background-image: url("../images/play-landscape.jpg"); 
-	}
-	#quiz-load:hover {
-		background-image: url("../images/play-landscape.jpg"); 
-	}
-	
-	/*search(top) container*/
-	#search-container { 
-		background-image: url("../images/search-landscape.jpg"); 
-		background-position: left top; 
-	}
+    h1 {
+        font-size: 75px;
+        margin-top: 10px;
+    }
 
-	/*quiz/play(bottom) container*/
-	#quiz-container {
-		right: 0;
-		background-image: url("../images/play-landscape.jpg"); 
-		background-position: right top;
-	}
-	
-	#container-full { 
-		width: 100%;
-		height: 100%;
-		position: fixed;
-		min-height: 0;
-		min-width: 0;
-	}
-	
-	#film-name {
-		width: 75%;
-		height: 30px; 
-		padding: 0.5em;
-		margin: 1px;
+    h2 {
+        font-size: 7vh;
+    }
 
-		border: 0.1em solid #cccccc;
-		border-radius: 0.2em;
-		
-		font-size: 34px; 
-		font-family: "Montserrat", "sans-serif";
-		text-align: center;
-		
-		overflow: hidden;
-		outline: none;
-		resize: none;
-	}
-	
-	#container-query {
-		margin: -10px;
-	}
-	
-	#score {
-		position: relative;
-		margin-top: 30px;
-		left: 5%;
-	}
-	
-	#bt1, #bt3 {
-		margin-bottom: 2px;
-	}
-	#bt2, #bt4 {
-		margin-top: 2px;
-	}
+    center {
+        text-align: left;
+        z-index: -1;
+        width: 60%;
+        margin: 0;
+    }
+
+    div.loadedcontainer {
+        height: 100%; 
+        width: 50%;
+        background-size: 200% 100%;
+        transition: none;
+    }
+
+    button.loadbutton { 
+        color: white;
+        background-size: 200% 100%; 
+        transition: none;
+        font-size: 75px;
+    }
+
+    /*generic full page content*/
+    div.fullpagecontent {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+
+        display: none;
+
+        opacity: 1;
+        transition: none;
+    }
+
+    .divTableGIF {
+        top: 25%;
+        left: 5%;
+    }
+
+    .divTable {
+        z-index: 5;
+        position: relative;
+        left: 70%;
+        top: 5%;
+        width: 30%;
+    }
+
+    .divTableRow {
+        display: inline-table;
+        width: 100%;
+    }
+
+    .quizanswer {
+        width: 100%;
+        height: 15vh;
+        font-size: 15px;
+        padding: 0px;
+    }
+
+    .divTableCell, .divTableHead { /*divTableHead UNUSED AT CURRENT TIME*/
+        position: relative;
+        float: left;
+        width: 90%;
+        left: 4.5%;
+        display: table-cell;
+        padding: 2px;
+        vertical-align: top; /*fixes bug with first answers set column having extra padding*/
+    }
+
+    /* .weightbutton { */
+    /*     width: 100%; */
+    /*     margin: 0; */
+    /*     z-index: 5; */
+    /* } */
+
+    .gif {
+        z-index: -1;
+        display: inline-block;
+        text-align: center;
+        margin: 0 auto;
+        top: 27%;
+    }
+
+    /*search load button*/
+    #search-load { 
+        background-position: left top; 
+        background-image: url("../images/search-landscape.jpg"); 
+    }
+    #search-load:hover {
+        background-image: url("../images/search-landscape.jpg"); 
+    }
+
+    /*quiz load button*/
+    #quiz-load {
+        background-position: right top;
+        background-image: url("../images/play-landscape.jpg"); 
+    }
+    #quiz-load:hover {
+        background-image: url("../images/play-landscape.jpg"); 
+    }
+
+    /*search(top) container*/
+    #search-container { 
+        background-image: url("../images/search-landscape.jpg"); 
+        background-position: left top; 
+    }
+
+    /*quiz/play(bottom) container*/
+    #quiz-container {
+        right: 0;
+        background-image: url("../images/play-landscape.jpg"); 
+        background-position: right top;
+    }
+
+    #container-full { 
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        min-height: 0;
+        min-width: 0;
+    }
+
+    #film-name {
+        width: 75%;
+        height: 30px; 
+        padding: 0.5em;
+        margin: 1px;
+
+        border: 0.1em solid #cccccc;
+        border-radius: 0.2em;
+
+        font-size: 34px; 
+        font-family: "Montserrat", "sans-serif";
+        text-align: center;
+
+        overflow: hidden;
+        outline: none;
+        resize: none;
+    }
+
+    #container-query {
+        margin: -10px;
+    }
+
+    #score {
+        position: relative;
+        margin-top: 30px;
+        left: 5%;
+    }
+
+    #bt1, #bt3 {
+        margin-bottom: 2px;
+    }
+    #bt2, #bt4 {
+        margin-top: 2px;
+    }
 
 }
 
