@@ -234,7 +234,7 @@ button.backbutton:hover {
 }
 
 /*quiz answer table cell*/
-.divTableCell, .divTableHead { /*divTableHead UNUSED AT CURRENT TIME*/
+.divTableCell, .divTableHead { 
 	display: table-cell;
 	padding: 15px;
 	vertical-align: top; /*fixes bug with first answers set column having extra padding*/
@@ -597,7 +597,7 @@ button.backbutton:hover {
 		padding: 0px;
 	}
 	
-	.divTableCell, .divTableHead { /*divTableHead UNUSED AT CURRENT TIME*/
+	.divTableCell, .divTableHead { 
 		position: relative;
 		float: left;
 		width: 90%;
