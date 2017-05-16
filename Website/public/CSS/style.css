@@ -234,10 +234,17 @@ button.backbutton:hover {
 }
 
 /*quiz answer table cell*/
+<<<<<<< HEAD
 .divTableCell, .divTableHead { /*divTableHead UNUSED AT CURRENT TIME*/
     display: table-cell;
     padding: 15px;
     vertical-align: top; /*fixes bug with first answers set column having extra padding*/
+=======
+.divTableCell, .divTableHead { 
+	display: table-cell;
+	padding: 15px;
+	vertical-align: top; /*fixes bug with first answers set column having extra padding*/
+>>>>>>> bbe74caf375bf2d3b3b85501360f4cf80df5dd22
 }
 
 /*inner quiz answers table container*/
@@ -529,6 +536,7 @@ button.backbutton:hover {
 
 /*applies to landscape smartphones*/
 @media only screen and (min-width: 500px) and (max-width: 749px) and (min-aspect-ratio: 121/80) {
+<<<<<<< HEAD
 
     h1 {
         font-size: 75px;
@@ -694,6 +702,173 @@ button.backbutton:hover {
     #bt2, #bt4 {
         margin-top: 2px;
     }
+=======
+	
+	h1 {
+		font-size: 75px;
+		margin-top: 10px;
+	}
+	
+	h2 {
+		font-size: 7vh;
+	}
+	
+	center {
+		text-align: left;
+		z-index: -1;
+		width: 60%;
+		margin: 0;
+	}
+	
+	div.loadedcontainer {
+		height: 100%; 
+		width: 50%;
+		background-size: 200% 100%;
+		transition: none;
+	}
+	
+	button.loadbutton { 
+		color: white;
+		background-size: 200% 100%; 
+		transition: none;
+		font-size: 75px;
+	}
+	
+	/*generic full page content*/
+	div.fullpagecontent {
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		
+		display: none;
+		
+		opacity: 1;
+		transition: none;
+	}
+	
+	.divTableGIF {
+		top: 25%;
+		left: 5%;
+	}
+	
+	.divTable {
+		z-index: 5;
+		position: relative;
+		left: 70%;
+		top: 5%;
+		width: 30%;
+	}
+	
+	.divTableRow {
+		display: inline-table;
+		width: 100%;
+	}
+	
+	.quizanswer {
+		width: 100%;
+		height: 15vh;
+		font-size: 15px;
+		padding: 0px;
+	}
+	
+	.divTableCell, .divTableHead { 
+		position: relative;
+		float: left;
+		width: 90%;
+		left: 4.5%;
+		display: table-cell;
+		padding: 2px;
+		vertical-align: top; /*fixes bug with first answers set column having extra padding*/
+	}
+	
+	.weightbutton {
+		width: 100%;
+		margin: 0;
+		z-index: 5;
+	}
+	
+	.gif {
+		z-index: -1;
+		display: inline-block;
+		text-align: center;
+		margin: 0 auto;
+		top: 27%;
+	}
+	
+	/*search load button*/
+	#search-load { 
+		background-position: left top; 
+		background-image: url("../images/search-landscape.jpg"); 
+	}
+	#search-load:hover {
+		background-image: url("../images/search-landscape.jpg"); 
+	}
+
+	/*quiz load button*/
+	#quiz-load {
+		background-position: right top;
+		background-image: url("../images/play-landscape.jpg"); 
+	}
+	#quiz-load:hover {
+		background-image: url("../images/play-landscape.jpg"); 
+	}
+	
+	/*search(top) container*/
+	#search-container { 
+		background-image: url("../images/search-landscape.jpg"); 
+		background-position: left top; 
+	}
+
+	/*quiz/play(bottom) container*/
+	#quiz-container {
+		right: 0;
+		background-image: url("../images/play-landscape.jpg"); 
+		background-position: right top;
+	}
+	
+	#container-full { 
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		min-height: 0;
+		min-width: 0;
+	}
+	
+	#film-name {
+		width: 75%;
+		height: 30px; 
+		padding: 0.5em;
+		margin: 1px;
+
+		border: 0.1em solid #cccccc;
+		border-radius: 0.2em;
+		
+		font-size: 34px; 
+		font-family: "Montserrat", "sans-serif";
+		text-align: center;
+		
+		overflow: hidden;
+		outline: none;
+		resize: none;
+	}
+	
+	#container-query {
+		margin: -10px;
+	}
+	
+	#score {
+		position: relative;
+		margin-top: 30px;
+		left: 5%;
+	}
+	
+	#bt1, #bt3 {
+		margin-bottom: 2px;
+	}
+	#bt2, #bt4 {
+		margin-top: 2px;
+	}
+>>>>>>> bbe74caf375bf2d3b3b85501360f4cf80df5dd22
 
 }
 
